@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Default location is Newyork city
+# Change 5128681 to your location ref code on OpenWeathermap.org
+RESP=$(curl -s http://api.openweathermap.org/data/2.5/weather\?id\=5128581\&appid\=85a4e3c55b73909f42c6a23ec35b7147)
+
+current_temp_inK=$(echo $RESP | jq .main.temp)
+current_temp_inC=$(bc -l <<< $current_temp_inK-273.15)
+
+echo $current_temp_inC "°C" 
+

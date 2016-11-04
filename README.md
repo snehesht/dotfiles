@@ -1,1 +1,5 @@
-# dotfiles2
+# Snehesh's dotfiles
+
+
+
+## License 
