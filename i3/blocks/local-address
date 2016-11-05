@@ -1,0 +1,15 @@
+#!/bin/bash
+
+IP_ADDRESS=$(ip route get 1 | awk '{print $NF;exit}')
+
+if [[ "$(ip route get 1 | awk 'print $5;exit}')" -eq "wlp3s0" ]]; then
+    IP_ADDRESS="WiFi: "$IP_ADDRESS
+else
+    IP_ADDRESS="LAN: "$IP_ADDRESS
+fi
+
+if [[ "${IP_ADDRESS}" != "" ]]; then
+  echo "${IP_ADDRESS}"
+  echo "${IP_ADDRESS}"
+  echo ""
+fi
