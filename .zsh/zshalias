@@ -1,0 +1,39 @@
+############## Git ####################
+
+# Add
+alias ga="git add $@"
+alias gaa="git add ."
+
+# Commit
+alias gc="git commit -m $@"
+
+# Log
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
+# Push & Pull
+alias gph="git push $@"
+alias gpl="git pull"
+
+# Branch
+alias gb="git branch $@"
+
+# Checkout
+alias gk="git checkout $@"
+
+# Diff
+alias gd="git diff $@"
+
+
+
+############## Custom #################
+
+# Editor
+export EDITOR="vim"
+
+alias vim="vim $@"
+
+# open links
+alias open="electron ~/min/ $@"
+
+# Calc
+alias calc="bc $@"

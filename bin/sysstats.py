@@ -27,6 +27,8 @@ def memstats(args):
     # > 0.3 ~ Number + 1
     if tmp_memstats['available']%10 > 3.0:
         free = tick*(int(tmp_memstats['available']/10))
+    elif tmp_memstats['available']/tmp_memstats['total'] >= 0.9:
+        free = tick*(int(tmp_memstats['available']/10))
     else:
         free = tick*(int(tmp_memstats['available']/10) + 1)
 
@@ -34,6 +36,7 @@ def memstats(args):
 
     # For Normal terminal
     if args.i3:
+        print(tmp_memstats)
         if(len(used)>7):
             print(colors.red(used)+colors.white(free))
         elif(len(used)<8 and len(used)>5):
@@ -45,13 +48,13 @@ def memstats(args):
     # For Tmux
     if args.tmux:
         # green
-        if(len(used)>7):
+        if(len(free)<5):
             print('#[bg=colour236,fg=colour009]'+used+'#[fg=default,bg=default]#[bg=colour236,fg=colour231]'+free)
         # yellow
-        elif(len(used)<8 and len(used)>5):
+        elif(len(free)>5 and len(free)<8):
             print('#[bg=colour236,fg=colour011]'+used+'#[fg=default,bg=default]#[bg=colour236,fg=colour231]'+free)
         # red
-        else:
+        elif(len(free)>8):
             print('#[bg=colour236,fg=colour010]'+used+'#[fg=default,bg=default]#[bg=colour236,fg=colour231]'+free)
 
     return None
@@ -73,6 +76,7 @@ def process_memstats():
     memstats_percentages['free'] = (mem_free/mem_total) * 100
     memstats_percentages['available'] = (mem_available/mem_total) * 100
 
+    # print(memstats_percentages)
     return memstats_percentages
 
 
