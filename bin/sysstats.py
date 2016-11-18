@@ -48,13 +48,13 @@ def memstats(args):
     # For Tmux
     if args.tmux:
         # green
-        if(len(free)<5):
+        if(len(used)>7):
             print('#[bg=colour236,fg=colour009]'+used+'#[fg=default,bg=default]#[bg=colour236,fg=colour231]'+free)
         # yellow
-        elif(len(free)>5 and len(free)<8):
+        elif(len(used)>5 and len(used)<8):
             print('#[bg=colour236,fg=colour011]'+used+'#[fg=default,bg=default]#[bg=colour236,fg=colour231]'+free)
         # red
-        elif(len(free)>8):
+        elif(len(used)<5):
             print('#[bg=colour236,fg=colour010]'+used+'#[fg=default,bg=default]#[bg=colour236,fg=colour231]'+free)
 
     return None

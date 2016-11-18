@@ -1,13 +1,12 @@
 ############## Custom Paths ###################################################
-export PATH="/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/sbin":$PATH
-
+export PATH="/bin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 # NodeJS
 
 # Python
 
 # Golang
-export GOPATH="/home/warlock/CodeBase/Go/"
-export PATH="$PATH:$GOPATH/bin"
+export GOPATH=/home/warlock/CodeBase/Go
+export PATH=$PATH:$GOPATH/bin
 
 # Ruby
-export PATH=$PATH:"/home/warlock/.gem/ruby/2.3.0/bin"
+#export PATH=$PATH:"/home/warlock/.gem/ruby/2.3.0/bin"
