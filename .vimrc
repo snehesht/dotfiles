@@ -82,6 +82,13 @@ let g:airline_theme='base16'
 " CSS
 Plug 'ap/vim-css-color'
 
+
+" markdown
+" https://github.com/plasticboy/vim-markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+
 " End Vim-Plug
 call plug#end()
 
