@@ -1,198 +1,231 @@
+" Default settings
 
-" Settings
-set number
-syntax on
-
-set tabstop=4
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-
-set modeline
-
-
-" Set WildMenu
-set wildmenu
-
-" Set Path - Search for file in subdirs of subdirs 
-set path+=**
-
-" Start Vim-Plug
-call plug#begin('~/.vim/plugged')
-
-" Solarized Color Scheme
-" Plug 'altercation/vim-colors-solarized'
-" Solarized 
-" Plug 'romainl/flattened'
-
-" Python AutoCompletion
-" Plug 'Valloric/YouCompleteMe'
-
-" Base16 Color Scheme
-" Plug 'chriskempson/base16-vim'
-
-" Nerdtree 
-Plug 'scrooloose/nerdtree'
-
-" Vim-venigar
-Plug 'tpope/vim-vinegar'
-
-"CodiVim
-Plug 'metakirby5/codi.vim'
-
-" Thesarus 
-Plug 'beloglazov/vim-online-thesaurus', { 'on': ['Thesaurus', 'OnlineThesaurusCurrentWord'] }
-
-" Comments
-" gcc in normal/visual mode to toggle comments
-Plug 'tpope/vim-commentary'
-
-" Plug 'scrooloose/nerdcommenter'
-
-" Git Wrapper
-Plug 'tpope/vim-fugitive'
-
-" Git-gutter
-" Disabled by default, to enable :GitGutterToggle
-Plug 'airblade/vim-gitgutter'
-let g:gitgutter_enabled = 0
-
-" Distraction free writing 
-Plug 'junegunn/goyo.vim'
-
-" Quoting Parenthesizing plugin
-Plug 'tpope/vim-surround'
-
-" Python syntax highlighting, pep8 
-" Plug 'klen/python-mode'
-Plug 'davidhalter/jedi-vim'
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
+"############### TODO ##############
+"
+" [Mapping] Swap splits
+" Python Support
+" Intendation Fix
+"
+"
+"
 
 
-" Tmux plugin for vim
-Plug 'tmux-plugins/vim-tmux'
-
-" Seamless navigation between tmux and vim
-Plug 'christoomey/vim-tmux-navigator'
-
-" Vim Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme='base16'
-
-
-
-" CSS
-Plug 'ap/vim-css-color'
-
-
-" markdown
-" https://github.com/plasticboy/vim-markdown
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-
-
-" End Vim-Plug
-call plug#end()
-
-" Color Scheme
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_bold=0
-
-set antialias
+" Disable vi-compatability
 set nocompatible
 
-" -- Display
-set title " Update the title of your window or your terminal
-set number " Display line numbers
-set ruler " Display cursor position
-set wrap " Wrap lines when they are too long
-set scrolloff=3 " Display at least 3 lines around you cursor
+" Enable linenumbers
+set number
 
-" (for scrolling)
-" set guioptions=T " Enable the toolbar
-
-" -- Search
-set ignorecase " Ignore case when searching
-set smartcase " If there is an uppercase in your search term
-
-" search case sensitive again
-set incsearch " Highlight search results when typing
-set hlsearch " Highlight search results
-
-" -- Beep
-" set visualbell " Prevent Vim from beeping
-" set noerrorbells " Prevent Vim from beeping
-
-" Backspace behaves as expected
-set backspace=indent,eol,start
-
-" Hide buffer (file) instead of abandoning when switching to another buffer
-set hidden
-
-filetype on
+" Enable filetype plugins
 filetype plugin on
 filetype indent on
 
-set list                   " Show non-printable characters.
-" set listchars=trail:.,tab:>-,extends:>,precedes:<,nbsp:¬
-if has('multi_byte') && &encoding ==# 'utf-8'
-   let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Enable syntax
+set syntax=on
+
+" Indentation
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+" Auto Indent
+set ai
+
+" Smart Indetn
+set si
+
+" Wrap lines
+set wrap
+
+" Statusline
+" set modeline
+
+" Autocompletion menu 
+set wildmenu
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+set wildignore+=.git\*,.hg\*,.svn\*
 else
-   let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
-" Put all temporary files under the same directory.
-" https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files
-set backup
-set backupdir   =$HOME/.vim/files/backup/
-set backupext   =-vimbackup
-set backupskip  =
-set directory   =$HOME/.vim/files/swap/
-set updatecount =100
-set undofile
-set undodir     =$HOME/.vim/files/undo/
-set viminfo ='100,n$HOME/.vim/files/info/viminfo
+"Always show current position
+set ruler
 
-" StatusLine
-set statusline=%!StatusLine()
+" Height of the command bar
+set cmdheight=1
 
-function! StatusLine()
-    let statusline = ""
-    " Filename (F -> full, f -> relative)
-    let statusline .= "%f"
-    " Buffer flags
-    let statusline .= "%( %h%1*%m%*%r%w%) "
-    " File format and type
-    let statusline .= "(%{&ff}%(\/%Y%))"
-    " Left/right separator
-    let statusline .= "%="
-    " Line & column
-    let statusline .= "(%l,%c%V) "
-    " Character under cursor (decimal)
-    let statusline .= "%03.3b "
-    " Character under cursor (hexadecimal)
-    let statusline .= "0x%02.2B "
-    " File progress
-    let statusline .= "| %P/%L"
-    return statusline
+" A buffer becomes hidden when it is abandoned
+set hid
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Search
+set path+=**
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases 
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch 
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw 
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch 
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" Add a bit extra margin to the left
+" set foldcolumn=1
+
+" Colorscheme
+colorscheme gruvbox
+set background=dark
+set antialias
+
+
+"######################################
+" Plugins							  #	
+"######################################
+
+call plug#begin('~/.vim/plugged')
+
+" NerdTree
+Plug 'scrooloose/nerdtree'
+" NerdTreeTabs to sync nerdtree between tabs
+Plug 'jistr/vim-nerdtree-tabs'
+
+" Seamless tmux-vim navigation
+Plug 'christoomey/vim-tmux-navigator'
+
+" Comment lines with vim-commentary
+" gc in visual mode
+" gcc in normal mode
+Plug 'tpope/vim-commentary'
+
+
+" Ctrl-P
+Plug 'kien/ctrlp.vim'
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+
+" ACK - AG a.k.a The Silver Searcher ( grep alternative )
+" Plug 'mileszs/ack.vim'
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+let g:airline_theme='base16_eighties'
+let g:airline#extensions#tabline#enabled = 1 
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = '[PASTE]'
+let g:airline_symbols.spell = ''
+let g:airline_symbols.notexists = ''
+let g:airline_symbols.whitespace = 'Ξ'
+
+
+
+call plug#end()
+
+
+" #####################################
+"  Keys							      #
+" #####################################
+" <space> == SPACE_BAR
+" <cr> == ENTER
+
+" Leader Key
+let mapleader = ","
+let g:mapleader = ","
+
+" Quick Save
+nmap <leader>w :w!<cr>
+
+" Paste Mode toggel
+map <leader>p :setl paste!<cr>
+
+" Tabs
+" <leader>> --> Next Tab
+" <leader>< --> Prev Tab
+map <leader>> :tabnext<cr>
+map <leader>< :tabprev<cr>
+map <leader>tc :tabclose<cr>
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+map <leader>tn :tabnew<cr>
+
+" Buffers
+" <leader>l --> next buffer
+" <leader>h --> prev buffer
+map <leader>l :bnext<cr>
+map <leader>h :bprevious<cr>
+" buffer close current --> <leader>bcc
+map <leader>bcc :Bclose<cr>:tabclose<cr>gT
+" buffers close all --> <leader>bca
+map <leader>bca :bufdo bd<cr>
+" Open new buffer
+map <leader>n :e ~/buffer<cr>
+
+
+" Search
+map <leader>hl :nohl<cr>
+
+" NERDTree Mapping
+map <leader>t :NERDTreeToggle<cr>
+map <leader>tt :NERDTreeTabsToggle<cr>
+
+" Helper Functions
+
+" Don't close window, when deleting a buffer
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
+
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
+
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
+
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
 endfunction
-
-set splitright
-
-" Python
-
-" set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
-filetype plugin indent on
-au FileType py set autoindent
-au FileType py set smartindent
-au FileType py set textwidth=79 " PEP-8 Friendly
-
-
