@@ -58,6 +58,9 @@ set ruler
 " Height of the command bar
 set cmdheight=1
 
+" Echo typed keys
+set showcmd
+
 " A buffer becomes hidden when it is abandoned
 set hid
 
@@ -198,6 +201,17 @@ map <leader>bcc :Bclose<cr>:tabclose<cr>gT
 map <leader>bca :bufdo bd<cr>
 " Open new buffer
 map <leader>n :e ~/buffer<cr>
+
+" Specify the behavior when switching between buffers 
+try
+  set switchbuf=useopen,usetab,newtab
+  set stal=2
+catch
+endtry
+
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 
 
 " Search
