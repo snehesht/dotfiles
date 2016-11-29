@@ -55,6 +55,10 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
 "Always show current position
 set ruler
 
+" Color Column ( Ruler guide after 80 chars )
+" set colorcolumn=80
+" set cc=80
+
 " Height of the command bar
 set cmdheight=1
 
@@ -108,15 +112,9 @@ colorscheme gruvbox
 set background=dark
 set antialias
 
-
+" Visual indication of trail chars, tabs etc.
 set list   " Show non-printable characters.
 set listchars=trail:.,tab:..,extends:>,precedes:<,nbsp:¬
-" if has('multi_byte') && &encoding ==# 'utf-8'
-"    let &listchars = 'tab:>,extends:≻,precedes:≺,nbsp:±'
-" else
-"    let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
-" endif
-
 
 " Put all temporary files under the same directory.
 " https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files
@@ -319,16 +317,16 @@ function! <SID>BufcloseCloseIt()
    let l:alternateBufNum = bufnr("#")
 
    if buflisted(l:alternateBufNum)
-     buffer #
+        buffer #
    else
-     bnext
+        bnext
    endif
 
    if bufnr("%") == l:currentBufNum
-     new
+        new
    endif
 
    if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
+        execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
