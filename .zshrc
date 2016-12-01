@@ -19,10 +19,10 @@ ZSH_THEME="custom"
 antigen use oh-my-zsh
 
 # Theme
-antigen theme ~/dotfiles/.zsh custom 
+antigen theme ~/dotfiles/.zsh custom
 
-# ZSH Syntax Highlighting 
-antigen bundle zsh-users/zsh-syntax-highlighting
+# ZSH Syntax Highlighting
+# antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
@@ -47,7 +47,7 @@ done
 
 
 # ############## Plugins - ZPlug #################################################
-# # Syntax Highlighting 
+# # Syntax Highlighting
 # zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
 # # 256 colors support
