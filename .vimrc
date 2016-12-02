@@ -2,10 +2,10 @@
 
 "############### TODO ##############
 "
-" [Mapping] Swap splits
-" Python Support
-" Intendation Fix
-"
+" [ ]   [Mapping] Swap splits
+" [ ]   Python Support
+" [x]   Intendation Fix
+" [ ]   Enter character in End of Line after the last char not before
 "
 "
 
@@ -157,6 +157,10 @@ Plug 'christoomey/vim-tmux-navigator'
 " Buffer Explorer
 Plug 'jlanzarotta/bufexplorer'
 
+" Git for vim
+Plug 'tpope/vim-fugitive'
+
+
 " Comment lines with vim-commentary
 " gc in visual mode
 " gcc in normal mode
@@ -204,6 +208,8 @@ let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 0
 " let g:airline#extensions#tabline#close_symbol = '×'
 let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '☲'
 
 " Show just filename
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -215,7 +221,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols.crypt = '🔒'
 let g:airline_symbols.linenr = ''
-let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.maxlinenr = ' Lines'
 let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = '[PASTE]'
 let g:airline_symbols.spell = ''
@@ -237,8 +243,12 @@ call plug#end()
 let mapleader = ","
 let g:mapleader = ","
 
+" Map <ESC> to jj
+inoremap jj <ESC>
+
 " Quick Save
 nmap <leader>w :w!<cr>
+inoremap <leader>w <ESC>:w!<cr>
 
 " Paste Mode toggel
 map <leader>p :setl paste!<cr>
@@ -291,6 +301,9 @@ map <leader>tt :NERDTreeTabsToggle<cr>
 "           Filetype Settings                   #
 "                                               #
 " ###############################################
+
+" Delete buffer on vim exit
+autocmd VimLeave * %bdelete
 
 " Auto-trim whitespace on save
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces#Automatically_removing_all_trailing_whitespace
