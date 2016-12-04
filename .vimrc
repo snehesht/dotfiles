@@ -229,6 +229,13 @@ let g:airline_symbols.notexists = ''
 let g:airline_symbols.whitespace = 'Ξ'
 
 
+" Python Support plugin
+Plug 'davidhalter/jedi-vim'
+" Auto initialize
+let g:jedi#auto_initialization = 1
+" disable auto prompt on .
+let g:jedi#popup_on_dot = 0
+
 
 call plug#end()
 
