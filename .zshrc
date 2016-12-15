@@ -9,8 +9,8 @@ export TERM=xterm-256color
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="custom"
-# ZSH_THEME="pure"
+#ZSH_THEME="custom"
+ZSH_THEME="warlock"
 
 
 ############ Plugins ###########################################################
@@ -19,7 +19,8 @@ ZSH_THEME="custom"
 antigen use oh-my-zsh
 
 # Theme
-antigen theme ~/dotfiles/.zsh custom
+#antigen theme ~/dotfiles/.zsh custom
+antigen theme ~/dotfiles/.zsh warlock
 
 # ZSH Syntax Highlighting
 # antigen bundle zsh-users/zsh-syntax-highlighting
@@ -43,7 +44,7 @@ done
 
 ############## Include Custom Paths (zsh_custom_path) #######################
 
-# source ~/dotfiles/zsh/zsh_custom_path
+source ~/dotfiles/.zsh/zsh_custom_path
 
 
 # ############## Plugins - ZPlug #################################################
