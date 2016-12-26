@@ -1,0 +1,348 @@
+; [settings]
+; throttle_ms = 50
+; throttle_limit = 3
+
+[bar/top]
+wm-restack = true
+; bottom = true
+width = 100%
+; height = 34
+height = 24
+clickareas = 35
+dock = false
+
+tray-background = #cc333333
+background = #cc333333
+foreground = #ccFFFFFF
+linecolor = ${bar/bottom.background}
+
+locale = fr_FR.UTF-8
+
+tray-position = right
+
+spacing = 4
+;spacing = 2
+lineheight = 2
+padding-left = 2
+padding-right = 5
+module-margin-left = 3
+module-margin-right = 3
+;module_margin_left = 1
+;module_margin_right = 1
+
+;font-0 = envypn:pixelsize=13;0
+font-0 = Sans-Regular:size=8;0
+font-1 = MaterialIcons:size=10;0
+; font-2 = Termsynu:size=8;-1
+font-2 = FontAwesome:size=10;0
+font-3 = Siji:size=10;0
+font-4 = Monospace:size=10;0
+
+modules-center = i3
+modules-left =
+modules-right = disk-root cpu memory wireless-network
+
+[bar/bottom]
+bottom = true
+width = 100%
+height = 28
+dock = false
+
+background = #cc131313
+foreground = #ccD0D0D0
+linecolor = ${bar/top.background}
+
+spacing = 4
+lineheight = 2
+padding-left = 2
+padding-right = 5
+module-margin-left = 3
+module-margin-right = 3
+
+;font-0 = envypn:pixelsize=13;0
+font-0 = Sans-Regular:size=8;0
+font-1 = MaterialIcons:size=10;0
+; font-2 = Termsynu:size=8;-1
+font-2 = FontAwesome:size=10;0
+font-3 = Siji:size=10;0
+font-4 = Monospace:size=10;0
+
+#modules-left = mocprev mocrun playstop mocnext mocp
+#modules-center = powermenu
+modules-right = volume date
+
+[bar/external_bottom]
+;inherit_from = bar/bottom
+
+bottom = true
+width = ${bar/bottom.width}
+height = ${bar/bottom.height}
+
+background = ${bar/bottom.background}
+foreground = ${bar/bottom.foreground}
+linecolor = ${bar/bottom.linecolor}
+
+spacing = ${bar/bottom.spacing}
+lineheight = ${bar/bottom.lineheight}
+padding_right = ${bar/bottom.padding_right}
+module_margin_left = ${bar/bottom.module_margin_left}
+module_margin_right = ${bar/bottom.module_margin_right}
+
+font-0 = ${bar/bottom.font-0}
+font-1 = ${bar/bottom.font-1}
+font-2 = ${bar/bottom.font-2}
+font-3 = ${bar/bottom.font-3}
+font-4 = ${bar/bottom.font-4}
+
+modules-left = i3
+modules-right = clock
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = <label> <bar-load>
+label = CPU
+
+bar-load-width = 30
+bar-load-foreground-0 = #aaff77
+bar-load-foreground-1 = #aaff77
+bar-load-foreground-2 = #fba922
+bar-load-foreground-3 = #ff5555
+bar-load-indicator = |
+bar-load-indicator-foreground = #ff
+bar-load-indicator-font = 4
+bar-load-fill = ─
+bar-load-fill-font = 4
+bar-load-empty = ─
+bar-load-empty-font = 4
+bar-load-empty-foreground = #444444
+
+[module/date]
+type = internal/date
+date =    %%{F#999}%a %e %b%%{F-}  %%{F#fff}%H:%M%%{F-}
+
+[module/disk-root]
+type = custom/script
+format =     <output>
+exec = BLOCK_INSTANCE='/' /usr/lib/i3blocks/disk | head -1
+
+[module/mocp]
+type = custom/script
+format = <output>
+exec = python /home/capuno/Escritorio/Programacion/Python/mocpi.py
+
+[module/playstop]
+type = custom/script
+format = <output>
+exec = echo 
+interval = 100
+click-left = mocp -G
+
+[module/mocnext]
+type = custom/script
+format = <output>
+exec = echo 
+interval = 100
+click-left = mocp -f
+
+[module/mocprev]
+type = custom/script
+format = <output>
+exec = echo 
+interval = 100
+click-left = mocp -r
+
+[module/mocrun]
+type = custom/script
+format = <output>
+exec = echo 
+interval = 100
+click-left = /home/capuno/Escritorio/Programacion/Bash/runstop.sh
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;0
+ws-icon-10 = 11;
+ws-icon-11 = 12;
+ws-icon-12 = 13;
+ws-icon-13 = 14;O
+ws-icon-14 = 15;P
+ws-icon-15 = 16;J
+ws-icon-16 = 17;K
+ws-icon-17 = 18;
+ws-icon-18 = 19;
+ws-icon-default = ♟
+
+label-focused = %icon%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #00FF65
+label-focused-padding = 2
+
+label-unfocused = %icon%
+label-unfocused-padding = 2
+
+label-visible = %icon%
+label-visible-underline = #555555
+label-visible-padding = 2
+
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 2
+
+[module/memory]
+type = internal/memory
+format = <label> <bar-used>
+label = RAM
+
+bar-used-width = 30
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-foreground = #ff
+bar-used-indicator-font = 4
+bar-used-fill = ─
+bar-used-fill-font = 4
+bar-used-empty = ─
+bar-used-empty-font = 4
+bar-used-empty-foreground = #444444
+
+[module/mpd]
+type = internal/mpd
+clickable_progress = true
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+
+; label-song = %artist% - %album% - %title%
+label-song = %artist% - %title%
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-random = 
+icon-repeat = 
+
+toggle_on-foreground =
+toggle_off-foreground = #55
+
+bar-progress-width = 10
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
+
+[module/powermenu]
+type = custom/menu
+
+format-padding = 5
+
+label-open = 
+label-close = 
+
+menu-0-0 = Terminate WM
+menu-0-0-foreground = #fba922
+menu-0-0-exec = bspc quit -1
+menu-0-1 = Reboot
+menu-0-1-foreground = #fba922
+menu-0-1-exec = menu_open-1
+menu-0-2 = Power off
+menu-0-2-foreground = #fba922
+menu-0-2-exec = menu_open-2
+
+menu-1-0 = Cancel
+menu-1-0-foreground = #fba922
+menu-1-0-exec = menu_open-0
+menu-1-1 = Reboot
+menu-1-1-foreground = #fba922
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = Power off
+menu-2-0-foreground = #fba922
+menu-2-0-exec = sudo poweroff
+menu-2-1 = Cancel
+menu-2-1-foreground = #fba922
+menu-2-1-exec = menu_open-0
+
+[module/tetrane-login]
+type = custom/text
+
+content = 
+
+click-left = bash ~/.i3/i3blocks/tetrane login
+click-right = bash ~/.i3/i3blocks/tetrane logout
+
+[module/volume]
+type = internal/volume
+; speaker_mixer = Speaker
+; headphone_mixer = Headphone
+; headphone_control_numid = 9
+
+format-volume = <ramp-volume> <bar-volume>
+label-muted =  ───────────── muted ─────────────
+label-muted-foreground = #66
+label-muted-font = 4
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+bar-volume-width = 30
+bar-volume-foreground-0 = #7794FF
+bar-volume-foreground-1 = #7794FF
+bar-volume-foreground-2 = #7794FF
+bar-volume-foreground-3 = #7794FF
+bar-volume-indicator = |
+bar-volume-indicator-foreground = #ff
+bar-volume-indicator-font = 4
+bar-volume-fill = ─
+bar-volume-fill-font = 4
+bar-volume-empty = ─
+bar-volume-empty-font = 4
+bar-volume-empty-foreground = #444444
+
+[module/wireless-network]
+type = internal/network
+interface = wlx001cdf2fb909
+interval = 3.0
+ping_interval = 10
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+label-disconnected =    not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${bar/top.foreground}
+animation-packetloss-framerate_ms = 500
+
+; vim:ft=dosini

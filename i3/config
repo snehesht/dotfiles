@@ -163,10 +163,10 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     position top
-	height 24	
-    i3bar_command i3bar -t
+	height 24
+    i3bar_command polybar top
 	#status_command i3status -c ~/.config/i3/i3status.conf
-	status_command i3blocks  -c ~/.config/i3/i3blocks.conf
+	#status_command i3blocks  -c ~/.config/i3/i3blocks.conf
         #status_command py3status -c ~/.config/i3/i3status.conf
 	tray_output primary
 	font pango: hack, FontAwesome 10
@@ -222,9 +222,14 @@ smart_borders on
 
 # Audio Keybindings
 # pulse audio volume control
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- 
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ 
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioMute exec amixer -D pulse sset Master unmute
 
-# Compton 
+# Compton
+
+
 exec --no-startup-id compton --config /home/warlock/.config/i3/compton.conf
+
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
