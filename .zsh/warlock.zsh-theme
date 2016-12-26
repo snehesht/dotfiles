@@ -64,5 +64,5 @@ git_status() {
 
 # Prompt
 PROMPT='%F{8}%n@%m%f %(?.%F{magenta}.%F{red})❯%f '
-RPROMPT='%F{4}%B%~%f%b ☩ $(git_status)%f'
+RPROMPT='%F{4}%B%~%f%b ☩ $(git_status)'
 
