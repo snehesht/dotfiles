@@ -1,348 +1,380 @@
-; [settings]
-; throttle_ms = 50
-; throttle_limit = 3
+; Configuration
+; https://github.com/jaagr/polybar/wiki
+
+[global/wm]
+; Adjust the _NET_WM_STRUT_PARTIAL top value
+;   Used for top aligned bars
+margin-bottom = 0
+
+; Adjust the _NET_WM_STRUT_PARTIAL bottom value
+;   Used for bottom aligned bars
+margin-top = 0
 
 [bar/top]
-wm-restack = true
-; bottom = true
-width = 100%
-; height = 34
-height = 24
-clickareas = 35
+monitor = HDMI-1
 dock = false
-
-tray-background = #cc333333
-background = #cc333333
-foreground = #ccFFFFFF
-linecolor = ${bar/bottom.background}
-
-locale = fr_FR.UTF-8
-
-tray-position = right
-
-spacing = 4
-;spacing = 2
-lineheight = 2
-padding-left = 2
-padding-right = 5
-module-margin-left = 3
-module-margin-right = 3
-;module_margin_left = 1
-;module_margin_right = 1
-
-;font-0 = envypn:pixelsize=13;0
-font-0 = Sans-Regular:size=8;0
-font-1 = MaterialIcons:size=10;0
-; font-2 = Termsynu:size=8;-1
-font-2 = FontAwesome:size=10;0
-font-3 = Siji:size=10;0
-font-4 = Monospace:size=10;0
-
-modules-center = i3
-modules-left =
-modules-right = disk-root cpu memory wireless-network
-
-[bar/bottom]
-bottom = true
 width = 100%
-height = 28
-dock = false
+height = 20
+offset-x = 0
+offset-y = 0
 
-background = #cc131313
-foreground = #ccD0D0D0
-linecolor = ${bar/top.background}
+bottom = false
 
-spacing = 4
+background = #00000000
+foreground = #FFFFFF
+;linecolor = #666
+
+;border-bottom = 1
+;border-bottom-color = #333
+
+spacing = 1
 lineheight = 2
-padding-left = 2
-padding-right = 5
-module-margin-left = 3
-module-margin-right = 3
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
 
-;font-0 = envypn:pixelsize=13;0
-font-0 = Sans-Regular:size=8;0
-font-1 = MaterialIcons:size=10;0
-; font-2 = Termsynu:size=8;-1
+font-0 = Hack:size=9;1
+font-1 = Unifont:size=9;-3
 font-2 = FontAwesome:size=10;0
-font-3 = Siji:size=10;0
-font-4 = Monospace:size=10;0
-
-#modules-left = mocprev mocrun playstop mocnext mocp
-#modules-center = powermenu
-modules-right = volume date
-
-[bar/external_bottom]
-;inherit_from = bar/bottom
-
-bottom = true
-width = ${bar/bottom.width}
-height = ${bar/bottom.height}
-
-background = ${bar/bottom.background}
-foreground = ${bar/bottom.foreground}
-linecolor = ${bar/bottom.linecolor}
-
-spacing = ${bar/bottom.spacing}
-lineheight = ${bar/bottom.lineheight}
-padding_right = ${bar/bottom.padding_right}
-module_margin_left = ${bar/bottom.module_margin_left}
-module_margin_right = ${bar/bottom.module_margin_right}
-
-font-0 = ${bar/bottom.font-0}
-font-1 = ${bar/bottom.font-1}
-font-2 = ${bar/bottom.font-2}
-font-3 = ${bar/bottom.font-3}
-font-4 = ${bar/bottom.font-4}
+font-3 = NotoSans-Regular:size=8;-1
+font-4 = Unifont:size=5;-4
+font-5 = Termsynu:size=7;-3
 
 modules-left = i3
-modules-right = clock
+modules-center = mpd
+modules-right = updates wifi wired volume backlight battery date cpu memory powermenu
 
-[module/cpu]
-type = internal/cpu
-interval = 2
-format = <label> <bar-load>
-label = CPU
+tray-transparent = true
+tray-position = right
+tray-detached = false
+tray-maxsize = 16
 
-bar-load-width = 30
-bar-load-foreground-0 = #aaff77
-bar-load-foreground-1 = #aaff77
-bar-load-foreground-2 = #fba922
-bar-load-foreground-3 = #ff5555
-bar-load-indicator = |
-bar-load-indicator-foreground = #ff
-bar-load-indicator-font = 4
-bar-load-fill = ─
-bar-load-fill-font = 4
-bar-load-empty = ─
-bar-load-empty-font = 4
-bar-load-empty-foreground = #444444
-
-[module/date]
-type = internal/date
-date =    %%{F#999}%a %e %b%%{F-}  %%{F#fff}%H:%M%%{F-}
-
-[module/disk-root]
-type = custom/script
-format =     <output>
-exec = BLOCK_INSTANCE='/' /usr/lib/i3blocks/disk | head -1
-
-[module/mocp]
-type = custom/script
-format = <output>
-exec = python /home/capuno/Escritorio/Programacion/Python/mocpi.py
-
-[module/playstop]
-type = custom/script
-format = <output>
-exec = echo 
-interval = 100
-click-left = mocp -G
-
-[module/mocnext]
-type = custom/script
-format = <output>
-exec = echo 
-interval = 100
-click-left = mocp -f
-
-[module/mocprev]
-type = custom/script
-format = <output>
-exec = echo 
-interval = 100
-click-left = mocp -r
-
-[module/mocrun]
-type = custom/script
-format = <output>
-exec = echo 
-interval = 100
-click-left = /home/capuno/Escritorio/Programacion/Bash/runstop.sh
+wm-restack = i3
 
 [module/i3]
 type = internal/i3
+;pin-workspaces = true
+;strip-wsnumbers = true
+;index-sort = true
+;enable-click = true
+;enable-scroll = false
 
-pin-workspaces = true
+format = <label-state> <label-mode>
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;6
-ws-icon-6 = 7;7
-ws-icon-7 = 8;8
-ws-icon-8 = 9;9
-ws-icon-9 = 10;0
-ws-icon-10 = 11;
-ws-icon-11 = 12;
-ws-icon-12 = 13;
-ws-icon-13 = 14;O
-ws-icon-14 = 15;P
-ws-icon-15 = 16;J
-ws-icon-16 = 17;K
-ws-icon-17 = 18;
-ws-icon-18 = 19;
-ws-icon-default = ♟
+ws-icon-0 = term;
+ws-icon-1 = web;
+ws-icon-2 = code;
+ws-icon-3 = music;
+ws-icon-4 = irssi;
+;ws-icon-default = 
+ws-icon-default =
 
-label-focused = %icon%
-label-focused-foreground = #ffffff
-label-focused-background = #3f3f3f
-label-focused-underline = #00FF65
-label-focused-padding = 2
+label-dimmed-underline = ${root.background}
 
-label-unfocused = %icon%
-label-unfocused-padding = 2
+label-focused = %icon%  %name%
+label-focused-foreground = #FFFFFF
+label-focused-background = #555555
+;label-focused-underline = #${colors.accent}
+;label-focused-underline = #9f78e1
+label-focused-font = 0
+label-focused-padding = 1
 
-label-visible = %icon%
-label-visible-underline = #555555
-label-visible-padding = 2
+label-unfocused = %icon%  %name%
+;label-unfocused-underline = #555555
+label-unfocused-font = 0
+label-unfocused-padding = 1
 
-label-urgent = %icon%
+label-urgent = %icon%  %name%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
-label-urgent-padding = 2
+;label-urgent-underline = #9b0a20
+label-urgent-font = 0
+label-urgent-padding = 1
+
+label-visible = %icon%  %name%
+label-visible-foreground = #55ffffff
+label-visible-font = 0
+label-visible-padding = 1
+
+
+[module/cpu]
+type = internal/cpu
+interval = 1.5
+
+format = <label> <ramp-coreload>
+
+label = 
+label-font = 3
+label-foreground = #99
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2
+ramp-coreload-0-foreground = #aaff77
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = #aaff77
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = #aaff77
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = #aaff77
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = #fba922
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = #fba922
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 2
+ramp-coreload-6-foreground = #ff5555
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
+ramp-coreload-7-foreground = #ff5555
 
 [module/memory]
 type = internal/memory
+interval = 0.2
 format = <label> <bar-used>
-label = RAM
+
+label = 
+label-font = 3
+label-foreground = #99
 
 bar-used-width = 30
-bar-used-foreground-0 = #aaff77
-bar-used-foreground-1 = #aaff77
-bar-used-foreground-2 = #fba922
-bar-used-foreground-3 = #ff5555
-bar-used-indicator = |
-bar-used-indicator-foreground = #ff
-bar-used-indicator-font = 4
-bar-used-fill = ─
-bar-used-fill-font = 4
-bar-used-empty = ─
-bar-used-empty-font = 4
-bar-used-empty-foreground = #444444
+bar-used-gradient = true
+bar-used-foreground-0 = #449f3d
+bar-used-foreground-1 = #2f8419
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ed5456
+bar-used-indicator = █
+bar-used-indicator-font = 5
+bar-used-indicator-foreground = #fff
+bar-used-fill = █
+bar-used-fill-font = 5
+bar-used-empty = █
+bar-used-empty-font = 5
+bar-used-empty-foreground = #44
+
+
+[module/bspwm]
+type = internal/bspwm
+
+; ws-icon-[0-9]+ = label;icon
+ws-icon-0 = desktop;
+ws-icon-1 = browse;
+ws-icon-2 = code;
+ws-icon-3 = edit;
+ws-icon-4 = cli;
+ws-icon-5 = media;
+ws-icon-6 = communicate;
+;ws-icon-8 = 8
+;ws-icon-9 = 9
+;ws-icon-10 = 10
+ws-icon-default = x
+
+format = <label-state> <label-mode>
+
+label-active = %index%: %icon%
+label-active-background = #ee333333
+label-active-underline= #cc333333
+label-active-padding = 1
+
+label-occupied = %index%: %icon%
+label-occupied-padding = 1
+
+label-urgent = %index%: %icon%
+label-urgent-background = #e60053
+label-urgent-padding = 1
+
+label-empty = %index%: %icon%
+label-empty-foreground = #666
+label-empty-padding = 1
+
+
+[module/wifi]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+;udspeed-minwidth = 3
+
+format-connected = <label-connected>
+label-connected =  %essid%
+;label-connected =  %essid% %{F#66}%local_ip%
+;label-connected = %{F#666}%{F#cc} %upspeed% %{F#666}%{F#cc} %downspeed%
+;label-connected = %{O-6 F#666}%{O2 F#cc}%downspeed%
+;label-disconnected = %{F#666}%{F#cc} not connected
+label-disconnected-foreground = #66
+
+
+[module/wired]
+type = internal/network
+interface = enp4s0f2
+interval = 3.0
+
+label-connected = %{T3}%local_ip%%{T-}
+;label-disconnected = %{T3}Not connected%{T-}
+;label-disconnected-foreground = #66
+
+
+[module/date]
+type = internal/date
+date = %%{F#666}%{F#cc} %Y-%m-%d %%{F#666} %%{F#cc} %H:%M
+interval = 5
+
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+format =   <label>
+bar-width = 5
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
+
+
+[module/volume]
+type = internal/volume
+;speaker-mixer = Speaker
+;headphone-mixer = Headphone
+;headphone-id = 14
+
+format-volume = <ramp-volume> <label-volume>
+
+label-volume = %percentage%
+label-volume-foreground = ${BAR.foreground}
+
+label-muted = 
+label-muted-foreground = #666
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+
+ramp-headphones-0 = 
+;ramp-headphones-1 = 
+
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+battery = BAT0
+adapter = AC0
+
+label-charging = %{F#c6e600}%percentage%
+label-discharging = %{F#e60053}-%percentage%
+label-full = %{F#666}
+
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+format-full = <label-full>
+
+ramp-capacity-0 = %{F#e60053}
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = #666
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = #666
+animation-charging-framerate = 750
+
 
 [module/mpd]
 type = internal/mpd
-clickable_progress = true
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
 
-; label-song = %artist% - %album% - %title%
-label-song = %artist% - %title%
+host = localhost
+port = 6600
 
-icon-play = 
-icon-pause = 
-icon-stop = 
-icon-prev = 
-icon-next = 
-icon-random = 
-icon-repeat = 
+format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online-background = #ee333333
+format-online-underline = #cc333333
+format-online-padding = 3
 
-toggle_on-foreground =
-toggle_off-foreground = #55
+;format-offline = <label-offline>
+;format-offline-foreground = #66
 
-bar-progress-width = 10
-bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
-bar-progress-indicator = |
-bar-progress-indicator-foreground = #ff
-bar-progress-indicator-font = 3
-bar-progress-fill = ─
-bar-progress-fill-foreground = #bb
-bar-progress-fill-font = 3
-bar-progress-empty = ─
-bar-progress-empty-font = 3
-bar-progress-empty-foreground = #44
+;label-offline = mpd is off
+
+label-song =  %artist% - %title%
+label-song-maxlen = 45
+label-song-ellipsis = true
+
+icon-prev = 
+icon-seekb = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekf = 
+
+icon-random = 
+icon-repeat = 
+icon-repeatone = 
+
+toggle-on-foreground = #e60053
+toggle-off-foreground = #66
+
+label-time-foreground = #77
+
+
+[module/updates]
+type = custom/script
+exec = checkupdates | wc -l
+format =   <label>
+format-foreground = #FFFFFF
+interval = 1800
+
 
 [module/powermenu]
 type = custom/menu
 
-format-padding = 5
+label-open = 
+label-close = 
+label-separator = /
 
-label-open = 
-label-close = 
+menu-0-0 = 
+menu-0-0-foreground = #e60053
+menu-0-0-exec = menu-open-1
 
-menu-0-0 = Terminate WM
-menu-0-0-foreground = #fba922
-menu-0-0-exec = bspc quit -1
-menu-0-1 = Reboot
-menu-0-1-foreground = #fba922
-menu-0-1-exec = menu_open-1
-menu-0-2 = Power off
-menu-0-2-foreground = #fba922
-menu-0-2-exec = menu_open-2
+menu-0-1 = 
+menu-0-1-foreground = #e60053
+menu-0-1-exec = menu-open-2
 
-menu-1-0 = Cancel
-menu-1-0-foreground = #fba922
-menu-1-0-exec = menu_open-0
-menu-1-1 = Reboot
-menu-1-1-foreground = #fba922
-menu-1-1-exec = sudo reboot
+menu-0-2 = 
+menu-0-2-foreground = #e60053
+menu-0-2-exec = menu-open-3
 
-menu-2-0 = Power off
-menu-2-0-foreground = #fba922
-menu-2-0-exec = sudo poweroff
-menu-2-1 = Cancel
-menu-2-1-foreground = #fba922
-menu-2-1-exec = menu_open-0
+menu-1-0 = 
+menu-1-0-foreground = #e60053
+menu-1-0-exec = i3lock-fancy
 
-[module/tetrane-login]
-type = custom/text
+menu-1-1 = 
+menu-1-1-foreground = #e60053
+menu-1-1-exec = menu-open-0
 
-content = 
+menu-2-0 = 
+menu-2-0-foreground = #e60053
+menu-2-0-exec = shutdown -r now
 
-click-left = bash ~/.i3/i3blocks/tetrane login
-click-right = bash ~/.i3/i3blocks/tetrane logout
+menu-2-1 = 
+menu-2-1-foreground = #e60053
+menu-2-1-exec = menu-open-0
 
-[module/volume]
-type = internal/volume
-; speaker_mixer = Speaker
-; headphone_mixer = Headphone
-; headphone_control_numid = 9
+menu-3-0 = 
+menu-3-0-foreground = #e60053
+menu-3-0-exec = shutdown -h now
 
-format-volume = <ramp-volume> <bar-volume>
-label-muted =  ───────────── muted ─────────────
-label-muted-foreground = #66
-label-muted-font = 4
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-bar-volume-width = 30
-bar-volume-foreground-0 = #7794FF
-bar-volume-foreground-1 = #7794FF
-bar-volume-foreground-2 = #7794FF
-bar-volume-foreground-3 = #7794FF
-bar-volume-indicator = |
-bar-volume-indicator-foreground = #ff
-bar-volume-indicator-font = 4
-bar-volume-fill = ─
-bar-volume-fill-font = 4
-bar-volume-empty = ─
-bar-volume-empty-font = 4
-bar-volume-empty-foreground = #444444
-
-[module/wireless-network]
-type = internal/network
-interface = wlx001cdf2fb909
-interval = 3.0
-ping_interval = 10
-
-format-connected = <ramp-signal> <label-connected>
-label-connected = %essid%
-label-disconnected =    not connected
-label-disconnected-foreground = #66
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-
-animation-packetloss-0 = 
-animation-packetloss-0-foreground = #ffa64c
-animation-packetloss-1 = 
-animation-packetloss-1-foreground = ${bar/top.foreground}
-animation-packetloss-framerate_ms = 500
+menu-3-1 = 
+menu-3-1-foreground = #e60053
+menu-3-1-exec = menu-open-0
 
 ; vim:ft=dosini
