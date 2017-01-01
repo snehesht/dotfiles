@@ -1,0 +1,405 @@
+Jan 01 00:37 : errno: Failed to open /home/warlock/.config/mpd/state: No such file or directory
+Jan 01 00:37 : update: added /Sri Venkateswara Suprabhatam - Traditional-23NAA9q2Hh0.mkv
+Jan 01 00:37 : update: added /Tycho - A Walk-mehLx_Fjv_c.mp3
+Jan 01 00:37 : avahi: Service 'Music Player' successfully established.
+Jan 01 00:38 : avahi: Service 'Music Player' successfully established.
+Jan 01 00:38 : client: [0] opened from 127.0.0.1:42334
+Jan 01 00:38 : player: played "Tycho - A Walk-mehLx_Fjv_c.mp3"
+Jan 01 00:38 : client: [0] closed
+Jan 01 00:38 : client: [1] opened from 127.0.0.1:42336
+Jan 01 00:39 : client: [1] closed
+Jan 01 00:47 : client: [2] opened from 127.0.0.1:42502
+Jan 01 00:47 : player: played "Tycho - A Walk-mehLx_Fjv_c.mp3"
+Jan 01 00:48 : client: [2] closed
+Jan 01 00:48 : client: [3] opened from 127.0.0.1:42508
+Jan 01 00:48 : player: played "Tycho - A Walk-mehLx_Fjv_c.mp3"
+Jan 01 00:49 : player: played "Sri Venkateswara Suprabhatam - Traditional-23NAA9q2Hh0.mkv"
+Jan 01 00:49 : player: played "Tycho - A Walk-mehLx_Fjv_c.mp3"
+Jan 01 00:51 : client: [4] opened from [::1]:42366
+Jan 01 00:51 : client: [4] closed
+Jan 01 00:52 : client: [5] opened from [::1]:42370
+Jan 01 00:52 : update: added /Tycho - Awake [Full Album]-qEI1_oGPQr0.mp3
+Jan 01 00:52 : update: added /Deadmau5 - Chill Mix-F0YYoo6oFoU.mp3
+Jan 01 00:52 : update: added /Tycho - Epoch (Full Album) [HD]-kg9gjQnSCAw.opus
+Jan 01 00:52 : client: [5] closed
+Jan 01 00:53 : player: played "Tycho - A Walk-mehLx_Fjv_c.mp3"
+Jan 01 00:54 : client: [6] opened from [::1]:42384
+Jan 01 00:54 : update: updating /Deadmau5 - Chill Mix-F0YYoo6oFoU.mp3
+Jan 01 00:54 : client: [6] closed
+Jan 01 00:57 : client: [7] opened from [::1]:42414
+Jan 01 00:57 : update: updating /Deadmau5 - Chill Mix-F0YYoo6oFoU.mp3
+Jan 01 00:57 : client: [7] closed
+Jan 01 00:57 : update: updating /Tycho - Awake [Full Album]-qEI1_oGPQr0.mp3
+Jan 01 00:57 : update: updating /Tycho - Epoch (Full Album) [HD]-kg9gjQnSCAw.opus
+Jan 01 00:57 : player: played "Deadmau5 - Chill Mix-F0YYoo6oFoU.mp3"
+Jan 01 00:57 : player: played "Tycho - A Walk-mehLx_Fjv_c.mp3"
+Jan 01 00:57 : player: played "Tycho - Awake [Full Album]-qEI1_oGPQr0.mp3"
+Jan 01 00:58 : client: [8] opened from 127.0.0.1:42626
+Jan 01 00:58 : client: [3] closed
+Jan 01 01:00 : client: [9] opened from [::1]:42426
+Jan 01 01:00 : client: [9] closed
+Jan 01 01:00 : client: [10] opened from [::1]:42436
+Jan 01 01:01 : client: [10] closed
+Jan 01 01:01 : client: [11] opened from [::1]:42446
+Jan 01 01:01 : client: [11] closed
+Jan 01 01:01 : client: [12] opened from [::1]:42462
+Jan 01 01:01 : client: [12] closed
+Jan 01 01:01 : client: [13] opened from [::1]:42472
+Jan 01 01:02 : client: [13] closed
+Jan 01 01:02 : client: [14] opened from [::1]:42482
+Jan 01 01:02 : client: [14] closed
+Jan 01 01:02 : client: [15] opened from [::1]:42492
+Jan 01 01:02 : client: [15] closed
+Jan 01 01:02 : client: [16] opened from [::1]:42500
+Jan 01 01:02 : client: [16] closed
+Jan 01 01:02 : client: [17] opened from [::1]:42510
+Jan 01 01:02 : client: [18] opened from [::1]:42520
+Jan 01 01:02 : player: played "Tycho - Epoch (Full Album) [HD]-kg9gjQnSCAw.opus"
+Jan 01 01:02 : client: [18] closed
+Jan 01 01:02 : client: [19] opened from [::1]:42522
+Jan 01 01:02 : client: [19] closed
+Jan 01 01:02 : client: [20] opened from [::1]:42524
+Jan 01 01:02 : client: [20] closed
+Jan 01 01:03 : client: [17] closed
+Jan 01 01:03 : client: [21] opened from [::1]:42536
+Jan 01 01:03 : client: [21] closed
+Jan 01 01:03 : client: [22] opened from [::1]:42544
+Jan 01 01:03 : client: [22] closed
+Jan 01 01:03 : client: [23] opened from [::1]:42552
+Jan 01 01:03 : client: [23] closed
+Jan 01 01:04 : client: [24] opened from [::1]:42562
+Jan 01 01:04 : client: [24] closed
+Jan 01 01:04 : client: [25] opened from [::1]:42570
+Jan 01 01:05 : client: [25] closed
+Jan 01 01:05 : client: [26] opened from [::1]:42586
+Jan 01 01:05 : client: [26] closed
+Jan 01 01:05 : client: [27] opened from [::1]:42596
+Jan 01 01:07 : client: [27] closed
+Jan 01 01:07 : client: [28] opened from [::1]:42608
+Jan 01 01:09 : client: [28] closed
+Jan 01 01:09 : client: [29] opened from 127.0.0.1:42842
+Jan 01 01:09 : client: [29] closed
+Jan 01 01:09 : client: [30] opened from 127.0.0.1:42850
+Jan 01 01:11 : client: [30] closed
+Jan 01 01:11 : client: [31] opened from 127.0.0.1:42864
+Jan 01 01:11 : client: [32] opened from 127.0.0.1:42874
+Jan 01 01:11 : client: [32] closed
+Jan 01 01:11 : client: [33] opened from 127.0.0.1:42876
+Jan 01 01:11 : client: [33] closed
+Jan 01 01:11 : client: [34] opened from 127.0.0.1:42878
+Jan 01 01:11 : client: [34] closed
+Jan 01 01:11 : client: [35] opened from 127.0.0.1:42880
+Jan 01 01:11 : client: [35] closed
+Jan 01 01:11 : client: [36] opened from 127.0.0.1:42882
+Jan 01 01:11 : client: [36] closed
+Jan 01 01:11 : client: [37] opened from 127.0.0.1:42884
+Jan 01 01:11 : player: played "Deadmau5 - Chill Mix-F0YYoo6oFoU.mp3"
+Jan 01 01:11 : client: [37] closed
+Jan 01 01:12 : client: [31] closed
+Jan 01 01:12 : client: [38] opened from 127.0.0.1:42886
+Jan 01 01:12 : client: [38] closed
+Jan 01 01:12 : client: [39] opened from 127.0.0.1:42896
+Jan 01 01:12 : client: [39] closed
+Jan 01 01:12 : client: [40] opened from 127.0.0.1:42906
+Jan 01 01:12 : client: [40] closed
+Jan 01 01:12 : client: [41] opened from 127.0.0.1:42916
+Jan 01 01:13 : client: [41] closed
+Jan 01 01:13 : client: [42] opened from 127.0.0.1:42926
+Jan 01 01:13 : client: [42] closed
+Jan 01 01:13 : client: [43] opened from 127.0.0.1:42936
+Jan 01 01:13 : client: [43] closed
+Jan 01 01:13 : client: [44] opened from 127.0.0.1:42948
+Jan 01 01:13 : client: [44] closed
+Jan 01 01:14 : client: [45] opened from 127.0.0.1:42958
+Jan 01 01:15 : client: [45] closed
+Jan 01 01:15 : client: [46] opened from 127.0.0.1:42970
+Jan 01 01:15 : client: [46] closed
+Jan 01 01:15 : client: [47] opened from 127.0.0.1:42980
+Jan 01 01:15 : client: [47] closed
+Jan 01 01:15 : client: [48] opened from 127.0.0.1:42988
+Jan 01 01:16 : client: [48] closed
+Jan 01 01:16 : client: [49] opened from 127.0.0.1:42998
+Jan 01 01:16 : player: played "Tycho - A Walk-mehLx_Fjv_c.mp3"
+Jan 01 01:16 : client: [49] closed
+Jan 01 01:16 : client: [50] opened from 127.0.0.1:43008
+Jan 01 01:16 : client: [50] closed
+Jan 01 01:17 : client: [51] opened from 127.0.0.1:43018
+Jan 01 01:17 : client: [51] closed
+Jan 01 01:17 : client: [52] opened from 127.0.0.1:43032
+Jan 01 01:17 : client: [52] closed
+Jan 01 01:17 : client: [53] opened from 127.0.0.1:43042
+Jan 01 01:17 : client: [53] closed
+Jan 01 01:18 : client: [54] opened from 127.0.0.1:43052
+Jan 01 01:18 : client: [54] closed
+Jan 01 01:18 : client: [55] opened from 127.0.0.1:43062
+Jan 01 01:18 : client: [55] closed
+Jan 01 01:18 : client: [56] opened from 127.0.0.1:43072
+Jan 01 01:18 : client: [56] closed
+Jan 01 01:18 : client: [57] opened from 127.0.0.1:43082
+Jan 01 01:18 : client: [57] closed
+Jan 01 01:18 : client: [58] opened from 127.0.0.1:43092
+Jan 01 01:18 : client: [59] opened from 127.0.0.1:43102
+Jan 01 01:18 : client: [59] closed
+Jan 01 01:18 : client: [60] opened from 127.0.0.1:43104
+Jan 01 01:18 : client: [60] closed
+Jan 01 01:19 : client: [58] closed
+Jan 01 01:19 : client: [61] opened from 127.0.0.1:43106
+Jan 01 01:19 : client: [62] opened from 127.0.0.1:43116
+Jan 01 01:19 : player: played "Tycho - Awake [Full Album]-qEI1_oGPQr0.mp3"
+Jan 01 01:19 : client: [62] closed
+Jan 01 01:19 : client: [63] opened from 127.0.0.1:43118
+Jan 01 01:19 : player: played "Tycho - Epoch (Full Album) [HD]-kg9gjQnSCAw.opus"
+Jan 01 01:19 : client: [63] closed
+Jan 01 01:24 : client: [61] closed
+Jan 01 01:24 : client: [64] opened from 127.0.0.1:43270
+Jan 01 01:24 : client: [65] opened from 127.0.0.1:43280
+Jan 01 01:24 : client: [65] closed
+Jan 01 01:24 : client: [66] opened from 127.0.0.1:43282
+Jan 01 01:24 : client: [66] closed
+Jan 01 01:26 : client: [64] closed
+Jan 01 01:26 : client: [67] opened from 127.0.0.1:43306
+Jan 01 01:26 : client: [67] closed
+Jan 01 01:26 : client: [68] opened from 127.0.0.1:43316
+Jan 01 01:26 : client: [68] closed
+Jan 01 01:26 : client: [69] opened from 127.0.0.1:43320
+Jan 01 01:26 : client: [69] closed
+Jan 01 01:26 : client: [70] opened from 127.0.0.1:43330
+Jan 01 01:26 : client: [71] opened from 127.0.0.1:43340
+Jan 01 01:26 : client: [71] closed
+Jan 01 01:26 : client: [72] opened from 127.0.0.1:43344
+Jan 01 01:26 : client: [72] closed
+Jan 01 01:27 : client: [70] closed
+Jan 01 01:27 : client: [73] opened from 127.0.0.1:43370
+Jan 01 01:28 : client: [73] closed
+Jan 01 01:28 : client: [74] opened from 127.0.0.1:43380
+Jan 01 01:28 : client: [74] closed
+Jan 01 01:28 : client: [75] opened from 127.0.0.1:43394
+Jan 01 01:28 : client: [75] closed
+Jan 01 01:28 : client: [76] opened from 127.0.0.1:43402
+Jan 01 01:31 : client: [76] closed
+Jan 01 01:31 : client: [77] opened from 127.0.0.1:43460
+Jan 01 01:31 : client: [77] closed
+Jan 01 01:31 : client: [78] opened from 127.0.0.1:43472
+Jan 01 01:32 : client: [78] closed
+Jan 01 01:32 : client: [79] opened from 127.0.0.1:43488
+Jan 01 01:32 : client: [79] closed
+Jan 01 01:32 : client: [80] opened from 127.0.0.1:43498
+Jan 01 01:32 : client: [80] closed
+Jan 01 01:32 : client: [81] opened from 127.0.0.1:43508
+Jan 01 01:32 : client: [81] closed
+Jan 01 01:32 : client: [82] opened from 127.0.0.1:43518
+Jan 01 01:36 : client: [82] closed
+Jan 01 01:36 : client: [83] opened from 127.0.0.1:43540
+Jan 01 01:36 : client: [83] closed
+Jan 01 01:36 : client: [84] opened from 127.0.0.1:43550
+Jan 01 01:37 : client: [84] closed
+Jan 01 01:37 : client: [85] opened from 127.0.0.1:43560
+Jan 01 01:37 : client: [85] closed
+Jan 01 01:37 : client: [86] opened from 127.0.0.1:43570
+Jan 01 01:38 : client: [86] closed
+Jan 01 01:38 : client: [87] opened from 127.0.0.1:43580
+Jan 01 01:38 : client: [87] closed
+Jan 01 01:38 : client: [88] opened from 127.0.0.1:43598
+Jan 01 01:38 : client: [88] closed
+Jan 01 01:38 : client: [89] opened from 127.0.0.1:43616
+Jan 01 01:39 : client: [89] closed
+Jan 01 01:39 : client: [90] opened from 127.0.0.1:43626
+Jan 01 01:39 : client: [90] closed
+Jan 01 01:39 : client: [91] opened from 127.0.0.1:43636
+Jan 01 01:40 : client: [91] closed
+Jan 01 01:40 : client: [92] opened from 127.0.0.1:43646
+Jan 01 01:40 : client: [92] closed
+Jan 01 01:40 : client: [93] opened from 127.0.0.1:43656
+Jan 01 01:41 : client: [93] closed
+Jan 01 01:41 : client: [94] opened from 127.0.0.1:43666
+Jan 01 01:41 : client: [94] closed
+Jan 01 01:41 : client: [95] opened from 127.0.0.1:43676
+Jan 01 01:42 : client: [95] closed
+Jan 01 01:42 : client: [96] opened from 127.0.0.1:43686
+Jan 01 01:42 : client: [96] closed
+Jan 01 01:42 : client: [97] opened from 127.0.0.1:43696
+Jan 01 01:42 : client: [97] closed
+Jan 01 01:42 : client: [98] opened from 127.0.0.1:43706
+Jan 01 01:43 : client: [98] closed
+Jan 01 01:43 : client: [99] opened from 127.0.0.1:43718
+Jan 01 01:44 : client: [99] closed
+Jan 01 01:44 : client: [100] opened from 127.0.0.1:43728
+Jan 01 01:44 : client: [100] closed
+Jan 01 01:44 : client: [101] opened from 127.0.0.1:43738
+Jan 01 01:44 : client: [101] closed
+Jan 01 01:44 : client: [102] opened from 127.0.0.1:43748
+Jan 01 01:44 : client: [102] closed
+Jan 01 01:44 : client: [103] opened from 127.0.0.1:43758
+Jan 01 01:44 : client: [103] closed
+Jan 01 01:44 : client: [104] opened from 127.0.0.1:43768
+Jan 01 01:44 : client: [104] closed
+Jan 01 01:44 : client: [105] opened from 127.0.0.1:43778
+Jan 01 01:44 : client: [105] closed
+Jan 01 01:44 : client: [106] opened from 127.0.0.1:43788
+Jan 01 01:45 : client: [106] closed
+Jan 01 01:46 : client: [107] opened from 127.0.0.1:43800
+Jan 01 01:46 : client: [107] closed
+Jan 01 01:46 : client: [108] opened from 127.0.0.1:43810
+Jan 01 01:46 : client: [108] closed
+Jan 01 01:46 : client: [109] opened from 127.0.0.1:43820
+Jan 01 01:46 : client: [109] closed
+Jan 01 01:46 : client: [110] opened from 127.0.0.1:43830
+Jan 01 01:46 : client: [110] closed
+Jan 01 01:46 : client: [111] opened from 127.0.0.1:43840
+Jan 01 01:46 : client: [111] closed
+Jan 01 01:46 : client: [112] opened from 127.0.0.1:43850
+Jan 01 01:47 : client: [112] closed
+Jan 01 01:47 : client: [113] opened from 127.0.0.1:43860
+Jan 01 01:47 : client: [113] closed
+Jan 01 01:47 : client: [114] opened from 127.0.0.1:43870
+Jan 01 01:47 : client: [114] closed
+Jan 01 01:47 : client: [115] opened from 127.0.0.1:43880
+Jan 01 01:47 : client: [115] closed
+Jan 01 01:47 : client: [116] opened from 127.0.0.1:43890
+Jan 01 01:47 : client: [116] closed
+Jan 01 01:47 : client: [117] opened from 127.0.0.1:43900
+Jan 01 01:47 : client: [117] closed
+Jan 01 01:47 : client: [118] opened from 127.0.0.1:43910
+Jan 01 01:48 : client: [118] closed
+Jan 01 01:48 : client: [119] opened from 127.0.0.1:43920
+Jan 01 01:48 : client: [119] closed
+Jan 01 01:48 : client: [120] opened from 127.0.0.1:43930
+Jan 01 01:48 : client: [120] closed
+Jan 01 01:48 : client: [121] opened from 127.0.0.1:43940
+Jan 01 01:48 : client: [121] closed
+Jan 01 01:48 : client: [122] opened from 127.0.0.1:43950
+Jan 01 01:48 : client: [122] closed
+Jan 01 01:48 : client: [123] opened from 127.0.0.1:43960
+Jan 01 01:48 : client: [123] closed
+Jan 01 01:48 : client: [124] opened from 127.0.0.1:43970
+Jan 01 01:48 : client: [124] closed
+Jan 01 01:48 : client: [125] opened from 127.0.0.1:43980
+Jan 01 01:49 : client: [125] closed
+Jan 01 01:49 : client: [126] opened from 127.0.0.1:43990
+Jan 01 01:49 : client: [126] closed
+Jan 01 01:49 : client: [127] opened from 127.0.0.1:44000
+Jan 01 01:50 : client: [127] closed
+Jan 01 01:50 : client: [128] opened from 127.0.0.1:44010
+Jan 01 01:50 : client: [128] closed
+Jan 01 01:50 : client: [129] opened from 127.0.0.1:44020
+Jan 01 01:50 : client: [129] closed
+Jan 01 01:50 : client: [130] opened from 127.0.0.1:44030
+Jan 01 01:50 : client: [130] closed
+Jan 01 01:50 : client: [131] opened from 127.0.0.1:44042
+Jan 01 01:50 : client: [131] closed
+Jan 01 01:51 : client: [132] opened from 127.0.0.1:44052
+Jan 01 01:52 : client: [132] closed
+Jan 01 01:52 : client: [133] opened from 127.0.0.1:44070
+Jan 01 01:52 : client: [133] closed
+Jan 01 01:52 : client: [134] opened from 127.0.0.1:44080
+Jan 01 01:53 : client: [134] closed
+Jan 01 01:53 : client: [135] opened from 127.0.0.1:44090
+Jan 01 01:53 : client: [135] closed
+Jan 01 01:53 : client: [136] opened from 127.0.0.1:44100
+Jan 01 01:54 : client: [136] closed
+Jan 01 01:54 : client: [137] opened from 127.0.0.1:44110
+Jan 01 01:54 : client: [137] closed
+Jan 01 01:54 : client: [138] opened from 127.0.0.1:44120
+Jan 01 01:54 : client: [138] closed
+Jan 01 01:54 : client: [139] opened from 127.0.0.1:44130
+Jan 01 01:54 : client: [139] closed
+Jan 01 01:54 : client: [140] opened from 127.0.0.1:44140
+Jan 01 01:55 : client: [140] closed
+Jan 01 01:55 : client: [141] opened from 127.0.0.1:44150
+Jan 01 01:55 : client: [141] closed
+Jan 01 01:55 : client: [142] opened from 127.0.0.1:44160
+Jan 01 01:55 : client: [142] closed
+Jan 01 01:55 : client: [143] opened from 127.0.0.1:44170
+Jan 01 01:55 : client: [143] closed
+Jan 01 01:55 : client: [144] opened from 127.0.0.1:44180
+Jan 01 01:56 : client: [144] closed
+Jan 01 01:56 : client: [145] opened from 127.0.0.1:44190
+Jan 01 01:56 : player: played "Tycho - Awake [Full Album]-qEI1_oGPQr0.mp3"
+Jan 01 01:56 : client: [145] closed
+Jan 01 01:56 : client: [146] opened from 127.0.0.1:44200
+Jan 01 01:56 : client: [146] closed
+Jan 01 01:56 : client: [147] opened from 127.0.0.1:44210
+Jan 01 01:57 : client: [147] closed
+Jan 01 01:57 : client: [148] opened from 127.0.0.1:44220
+Jan 01 01:57 : client: [148] closed
+Jan 01 01:57 : client: [149] opened from 127.0.0.1:44230
+Jan 01 01:57 : client: [149] closed
+Jan 01 01:57 : client: [150] opened from 127.0.0.1:44240
+Jan 01 01:57 : client: [150] closed
+Jan 01 01:58 : client: [151] opened from 127.0.0.1:44250
+Jan 01 01:58 : client: [151] closed
+Jan 01 01:58 : client: [152] opened from 127.0.0.1:44260
+Jan 01 01:58 : client: [152] closed
+Jan 01 01:58 : client: [153] opened from 127.0.0.1:44270
+Jan 01 01:59 : client: [153] closed
+Jan 01 01:59 : client: [154] opened from 127.0.0.1:44280
+Jan 01 01:59 : client: [154] closed
+Jan 01 01:59 : client: [155] opened from 127.0.0.1:44290
+Jan 01 01:59 : client: [155] closed
+Jan 01 01:59 : client: [156] opened from 127.0.0.1:44300
+Jan 01 01:59 : client: [156] closed
+Jan 01 01:59 : client: [157] opened from 127.0.0.1:44310
+Jan 01 01:59 : client: [157] closed
+Jan 01 01:59 : client: [158] opened from 127.0.0.1:44320
+Jan 01 02:00 : client: [158] closed
+Jan 01 02:00 : client: [159] opened from 127.0.0.1:44330
+Jan 01 02:00 : client: [159] closed
+Jan 01 02:00 : client: [160] opened from 127.0.0.1:44340
+Jan 01 02:00 : client: [160] closed
+Jan 01 02:00 : client: [161] opened from 127.0.0.1:44352
+Jan 01 02:00 : client: [161] closed
+Jan 01 02:00 : client: [162] opened from 127.0.0.1:44362
+Jan 01 02:00 : client: [162] closed
+Jan 01 02:00 : client: [163] opened from 127.0.0.1:44372
+Jan 01 02:01 : client: [163] closed
+Jan 01 02:01 : client: [164] opened from 127.0.0.1:44386
+Jan 01 02:02 : client: [164] closed
+Jan 01 02:02 : client: [165] opened from 127.0.0.1:44396
+Jan 01 02:02 : client: [165] closed
+Jan 01 02:02 : client: [166] opened from 127.0.0.1:44406
+Jan 01 02:04 : client: [166] closed
+Jan 01 02:04 : client: [167] opened from 127.0.0.1:44430
+Jan 01 02:04 : client: [167] closed
+Jan 01 02:04 : client: [168] opened from 127.0.0.1:44440
+Jan 01 02:05 : client: [168] closed
+Jan 01 02:05 : client: [169] opened from 127.0.0.1:44454
+Jan 01 02:06 : client: [169] closed
+Jan 01 02:06 : client: [170] opened from 127.0.0.1:44466
+Jan 01 02:07 : client: [170] closed
+Jan 01 02:07 : client: [171] opened from 127.0.0.1:44484
+Jan 01 02:07 : client: [171] closed
+Jan 01 02:07 : client: [172] opened from 127.0.0.1:44494
+Jan 01 02:07 : client: [172] closed
+Jan 01 02:07 : client: [173] opened from 127.0.0.1:44504
+Jan 01 02:08 : client: [173] closed
+Jan 01 02:08 : client: [174] opened from 127.0.0.1:44514
+Jan 01 02:08 : client: [174] closed
+Jan 01 02:08 : client: [175] opened from 127.0.0.1:44524
+Jan 01 02:08 : client: [175] closed
+Jan 01 02:08 : client: [176] opened from 127.0.0.1:44534
+Jan 01 02:11 : client: [176] closed
+Jan 01 02:11 : client: [177] opened from 127.0.0.1:44600
+Jan 01 02:13 : client: [177] closed
+Jan 01 02:13 : client: [178] opened from 127.0.0.1:44622
+Jan 01 02:16 : client: [178] closed
+Jan 01 02:16 : client: [179] opened from 127.0.0.1:44636
+Jan 01 02:16 : client: [179] closed
+Jan 01 02:16 : client: [180] opened from 127.0.0.1:44646
+Jan 01 02:17 : client: [180] closed
+Jan 01 02:17 : client: [181] opened from 127.0.0.1:44658
+Jan 01 02:18 : client: [181] closed
+Jan 01 02:18 : client: [182] opened from 127.0.0.1:44668
+Jan 01 02:18 : client: [182] closed
+Jan 01 02:18 : client: [183] opened from 127.0.0.1:44678
+Jan 01 02:19 : client: [183] closed
+Jan 01 02:19 : client: [184] opened from 127.0.0.1:44694
+Jan 01 02:20 : client: [184] closed
+Jan 01 02:20 : client: [185] opened from 127.0.0.1:44704
+Jan 01 02:20 : client: [185] closed
+Jan 01 02:21 : client: [186] opened from 127.0.0.1:44714
+Jan 01 02:21 : client: [186] closed
+Jan 01 02:21 : client: [187] opened from 127.0.0.1:44730
+Jan 01 02:21 : client: [187] closed
+Jan 01 02:21 : client: [188] opened from 127.0.0.1:44742
+Jan 01 02:21 : client: [188] closed
+Jan 01 02:21 : client: [189] opened from 127.0.0.1:44766
