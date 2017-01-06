@@ -14,7 +14,7 @@ margin-top = 0
 ;monitor = HDMI-1
 dock = false
 width = 100%
-height = 20
+height = 24
 offset-x = 0
 offset-y = 0
 
@@ -28,27 +28,29 @@ foreground = #FFFFFF
 ;border-bottom-color = #333
 
 spacing = 1
-lineheight = 2
+lineheight = 1
 padding-left = 0
 padding-right = 2
-module-margin-left = 1
+padding-top = 0
+padding-bottom = 0
+module-margin-left = 2
 module-margin-right = 2
 
-font-0 = Hack:size=9;1
+font-0 = Hack:size=10;1
 font-1 = Unifont:size=12;0
-font-2 = FontAwesome:size=10;0
+font-2 = FontAwesome:size=11;0
 font-3 = NotoSans-Regular:size=8;-1
 font-4 = Unifont:size=5;-4
 font-5 = Termsynu:size=7;-3
 
 modules-left = i3
 ;modules-center = mpd
-modules-right = updates weather wifi wired volume powermenu
+modules-right = weather externalip wifi wired powermenu
 
-tray-transparent = true
-tray-position = right
-tray-detached = false
-tray-maxsize = 16
+; tray-transparent = true
+; tray-position = right
+; tray-detached = false
+; tray-maxsize = 16
 
 wm-restack = i3
 
@@ -56,11 +58,10 @@ wm-restack = i3
 ;monitor = HDMI-1
 dock = false
 width = 100%
-height = 20
+height = 22
 offset-x = 0
 offset-y = 0
-
-bottom = false
+bottom = true
 
 background = #00000000
 foreground = #FFFFFF
@@ -73,24 +74,27 @@ spacing = 1
 lineheight = 2
 padding-left = 0
 padding-right = 2
+padding-top = 1
+padding-bottom = 1
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
-font-0 = Hack:size=9;1
-font-1 = Unifont:size=12;0
-font-2 = FontAwesome:size=10;0
+font-0 = Hack:size=10;0
+font-1 = Unifont:size=9;0
+font-2 = FontAwesome:size=11;0
 font-3 = NotoSans-Regular:size=8;-1
-font-4 = Unifont:size=5;-4
-font-5 = Termsynu:size=7;-3
+font-4 = Unifont:size=10;-2
+font-5 = FontAwesome:size=10;0
+font-6 = siji:size=10;-1
 
-modules-left = mpd
+modules-left = time date mpd
 ; modules-center = mpd
-modules-right = battery cpu memory filesystem
+modules-right = updates volume backlight filesystem cpu memory battery0 battery1
 
 tray-transparent = true
 tray-position = right
 tray-detached = false
-tray-maxsize = 16
+tray-maxsize = 24
 
 wm-restack = i3
 
@@ -111,44 +115,48 @@ ws-icon-2 = code;
 ws-icon-3 = music;
 ws-icon-4 = irssi;
 ;ws-icon-default = 
-ws-icon-default =
+; ws-icon-default =
 
 label-dimmed-underline = ${root.background}
 
-label-focused = %icon%  %name%
+label-focused = %name%
 label-focused-foreground = #333333
 label-focused-background = #fcdfb3
 ;label-focused-underline = #${colors.accent}
 ;label-focused-underline = #9f78e1
 label-focused-font = 0
-label-focused-padding = 1
+label-focused-padding = 2
+; label-focused-padding-left = 1
+label-focused-margin-left = 0
+label-focused-border = 1
+label-focused-border-color = #FF0000
 
-label-unfocused = %icon%  %name%
+label-unfocused = %name%
 ;label-unfocused-underline = #555555
 label-unfocused-font = 0
-label-unfocused-padding = 1
+label-unfocused-padding = 2
 
-label-urgent = %icon%  %name%
+label-urgent = %name%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 ;label-urgent-underline = #9b0a20
 label-urgent-font = 0
-label-urgent-padding = 1
+label-urgent-padding = 2
 
-label-visible = %icon%  %name%
+label-visible = %name%
 label-visible-foreground = #55ffffff
 label-visible-font = 0
-label-visible-padding = 1
+label-visible-padding = 2
 
 
 [module/cpu]
 type = internal/cpu
-interval = 1.5
+interval = 1
 
 format = <label> <ramp-coreload>
 
 label = 
-label-font = 3
+label-font = 2
 label-foreground = #99
 
 ramp-coreload-0 = ▁
@@ -182,21 +190,21 @@ interval = 0.2
 format = <label> <bar-used>
 
 label = 
-label-font = 3
-label-foreground = #99
+label-font = 2
+label-foreground = #85
 
-bar-used-width = 30
+bar-used-width = 16
 bar-used-gradient = true
 bar-used-foreground-0 = #449f3d
 bar-used-foreground-1 = #2f8419
 bar-used-foreground-2 = #f5a70a
 bar-used-foreground-3 = #ed5456
-bar-used-indicator = █
+bar-used-indicator = ▊
 bar-used-indicator-font = 5
 bar-used-indicator-foreground = #fff
-bar-used-fill = █
+bar-used-fill = ▊
 bar-used-fill-font = 5
-bar-used-empty = █
+bar-used-empty = ▊
 bar-used-empty-font = 5
 bar-used-empty-foreground = #44
 
@@ -263,11 +271,19 @@ label-connected = %{T3}%local_ip%%{T-}
 
 [module/date]
 type = internal/date
-date = %%{F#666}%{F#cc} %Y-%m-%d %%{F#666} %%{F#cc} %H:%M
-interval = 5
+date =  %Y-%m-%d
+interval = 60
+
+[module/time]
+type = internal/date
+time = %H:%M:%S
+label =  %time%
+label-font = 0
+label-foreground = #FFFFFF
 
 [module/backlight]
-type = internal/backlight
+type = internal/xbacklight
+; output = eDP1
 enable-scroll = true
 ; Only applies if <ramp> is used
 ramp-0 = 🌕
@@ -275,7 +291,11 @@ ramp-1 = 🌔
 ramp-2 = 🌓
 ramp-3 = 🌒
 ramp-4 = 🌑
-
+ramp-0-font = 2
+ramp-1-font = 2
+ramp-2-font = 2
+ramp-3-font = 2
+ramp-4-font = 2
 ; Use the following command to list available cards:
 ; $ ls -1 /sys/class/backlight/
 card = intel_backlight
@@ -285,6 +305,12 @@ bar-width = 5
 bar-indicator = |
 bar-fill = ─
 bar-empty = ─
+
+scroll-up-exec = xbacklight + 5
+scroll-down-exec = xbacklight - 5
+click-left = xbacklight + 5
+click-middle-exec = xbacklight = 50
+click-right = xbacklight - 5
 
 [module/keyboard]
 type = internal/xkeyboard
@@ -385,37 +411,63 @@ ramp-volume-1 = 
 ramp-headphones-0 = 
 ;ramp-headphones-1 = 
 
-
-[module/battery]
+; Dual Battery
+[module/battery0]
 type = internal/battery
 full-at = 98
-
 battery = BAT0
-;battery = BAT1
 adapter = AC
 
-label-charging = %{F#c6e600}%percentage%
-label-discharging = %{F#e60053}-%percentage%
-label-full = %{F#666}
+label-charging = %percentage%
+label-discharging = %percentage%
+label-full = 
 
-format-charging = <label-charging>
-;format-charging = <ramp-capacity>
+format-charging = %{F#00ff00} <animation-charging> <label-charging>
 format-discharging = <label-discharging>
 format-full = <label-full>
 
-ramp-capacity-0 = %{F#e60053}
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = #666
+ramp-bat0-0 = %{F#00ff00}
+ramp-bat0-1 = 
+ramp-bat0-2 = 
+ramp-bat0-3 = 
+ramp-bat0-4 = 
+ramp-bat0-foreground = #666
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = #666
+animation-charging-foreground = #0F0
+animation-charging-framerate = 750
+
+[module/battery1]
+type = internal/battery
+full-at = 98
+battery = BAT1
+adapter = AC
+
+label-charging = %percentage%
+label-discharging = %percentage%
+label-full = 
+
+format-charging = %{F#00ff00} <animation-charging> <label-charging>
+format-discharging = <label-discharging>
+format-full = <label-full>
+
+ramp-bat0-0 = %{F#00ff00}
+ramp-bat0-1 = 
+ramp-bat0-2 = 
+ramp-bat0-3 = 
+ramp-bat0-4 = 
+ramp-bat0-foreground = #666
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = #0F0
 animation-charging-framerate = 750
 
 
@@ -483,7 +535,7 @@ interval = 1
 ;   <icon-seekb>
 ;   <icon-seekf>
 ; format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next> <label-time>  <label-song>
-format-online = <icon-prev> <toggle> <icon-next> <label-time> <label-song>
+format-online =    <icon-prev> <toggle> <icon-next> <label-time> <label-song>
 
 ; Available tags:
 ;   <label-offline>
@@ -548,44 +600,63 @@ interval = 60
 [module/powermenu]
 type = custom/menu
 
-label-open = 
+; label-open = 
+label-open = 
 label-close = 
+label-open-foreground = #FC0F0F
+label-close-foreground = #2E00FC
 label-separator = /
 
 menu-0-0 = 
-menu-0-0-foreground = #e60053
+menu-0-0-foreground = #FC0F0F
 menu-0-0-exec = menu-open-1
 
 menu-0-1 = 
-menu-0-1-foreground = #e60053
+menu-0-1-foreground = #FC0F0F
 menu-0-1-exec = menu-open-2
 
 menu-0-2 = 
-menu-0-2-foreground = #e60053
+menu-0-2-foreground = #FC0F0F
 menu-0-2-exec = menu-open-3
 
 menu-1-0 = 
-menu-1-0-foreground = #e60053
+menu-1-0-foreground = #FC0F0F
 menu-1-0-exec = i3lock-fancy
 
 menu-1-1 = 
-menu-1-1-foreground = #e60053
+menu-1-1-foreground = #F4FC00
 menu-1-1-exec = menu-open-0
 
 menu-2-0 = 
-menu-2-0-foreground = #e60053
+menu-2-0-foreground = #FC0F0F
 menu-2-0-exec = shutdown -r now
 
 menu-2-1 = 
-menu-2-1-foreground = #e60053
+menu-2-1-foreground = #F4FC00
 menu-2-1-exec = menu-open-0
 
 menu-3-0 = 
-menu-3-0-foreground = #e60053
+menu-3-0-foreground = #FC0F0F
 menu-3-0-exec = shutdown -h now
 
 menu-3-1 = 
-menu-3-1-foreground = #e60053
+menu-3-1-foreground = #F4FC00
 menu-3-1-exec = menu-open-0
 
-; vim:ft=dosini
+
+; Custom Scripts
+; [module/SCRIPT_NAME_HERE]
+; type = custom/script
+; exec = COMMAND_HERE
+; format =   <label>
+; format-foreground = #FFFFFF
+; interval = 1800
+
+
+[module/externalip]
+type = custom/script
+exec = curl -s http://ip-api.com/json | jq -M -r .query
+format =   <label>
+format-foreground = #FFFFFF
+interval = 300
+

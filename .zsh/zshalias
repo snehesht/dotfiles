@@ -40,4 +40,4 @@ alias calc="bc $@"
 
 # youtube-dl alias
 
-alias extract_mp3="youtube-dl --extract-audio --audio-format mp3 $@"
+alias ytdl_mp3="youtube-dl --extract-audio --audio-format mp3 $@"

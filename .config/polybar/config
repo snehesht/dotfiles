@@ -45,7 +45,7 @@ font-5 = Termsynu:size=7;-3
 
 modules-left = i3
 ;modules-center = mpd
-modules-right = weather wifi wired volume powermenu
+modules-right = weather externalip wifi wired powermenu
 
 ; tray-transparent = true
 ; tray-position = right
@@ -89,7 +89,7 @@ font-6 = siji:size=10;-1
 
 modules-left = time date mpd
 ; modules-center = mpd
-modules-right = updates backlight battery cpu memory filesystem
+modules-right = updates volume backlight filesystem cpu memory battery0 battery1
 
 tray-transparent = true
 tray-position = right
@@ -411,37 +411,63 @@ ramp-volume-1 = 
 ramp-headphones-0 = 
 ;ramp-headphones-1 = 
 
-
-[module/battery]
+; Dual Battery
+[module/battery0]
 type = internal/battery
 full-at = 98
-
 battery = BAT0
-;battery = BAT1
 adapter = AC
 
-label-charging = %{F#c6e600} %percentage%
-label-discharging = %{F#e60053}-%percentage%
-label-full = %{F#666}
+label-charging = %percentage%
+label-discharging = %percentage%
+label-full = 
 
-format-charging = <label-charging>
-; format-charging = <animation-charging>
+format-charging = %{F#00ff00} <animation-charging> <label-charging>
 format-discharging = <label-discharging>
 format-full = <label-full>
 
-ramp-capacity-0 = %{F#e60053}
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = #666
+ramp-bat0-0 = %{F#00ff00}
+ramp-bat0-1 = 
+ramp-bat0-2 = 
+ramp-bat0-3 = 
+ramp-bat0-4 = 
+ramp-bat0-foreground = #666
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = #666
+animation-charging-foreground = #0F0
+animation-charging-framerate = 750
+
+[module/battery1]
+type = internal/battery
+full-at = 98
+battery = BAT1
+adapter = AC
+
+label-charging = %percentage%
+label-discharging = %percentage%
+label-full = 
+
+format-charging = %{F#00ff00} <animation-charging> <label-charging>
+format-discharging = <label-discharging>
+format-full = <label-full>
+
+ramp-bat0-0 = %{F#00ff00}
+ramp-bat0-1 = 
+ramp-bat0-2 = 
+ramp-bat0-3 = 
+ramp-bat0-4 = 
+ramp-bat0-foreground = #666
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = #0F0
 animation-charging-framerate = 750
 
 
@@ -617,4 +643,20 @@ menu-3-1 = 
 menu-3-1-foreground = #F4FC00
 menu-3-1-exec = menu-open-0
 
-; vim:ft=dosini
+
+; Custom Scripts
+; [module/SCRIPT_NAME_HERE]
+; type = custom/script
+; exec = COMMAND_HERE
+; format =   <label>
+; format-foreground = #FFFFFF
+; interval = 1800
+
+
+[module/externalip]
+type = custom/script
+exec = curl -s http://ip-api.com/json | jq -M -r .query
+format =   <label>
+format-foreground = #FFFFFF
+interval = 300
+
