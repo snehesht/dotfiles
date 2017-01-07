@@ -2,10 +2,16 @@
 Xcursor.theme: DMZ-White
 
 ! Fonts
-URxvt.font:                xft:Hack:pixelsize=16
-URxvt.boldFont:            xft:Hack:pixelsize=16:bold
-URxvt.italicFont:          xft:Hack:pixelsize=16:italic
-URxvt.boldItalicFont:      xft:Hack:pixelsize=16:bold:italic
+Xft.antialias:  true
+Xft.hinting:    true
+Xft.rgba:       rgb
+Xft.hintstyle: hintfull
+
+URxvt.font:                xft:Fira Mono:size=12,xft:Hack:size=12,xft:unifont:size=14,xft:Font Awesome:size=14
+URxvt.boldFont:            xft:Fira Mono:size=12:bold,xft:Hack:size=12:bold
+URxvt.italicFont:          xft:Fira Mono:size=12:italic,xft:Hack:size=12:italic
+URxvt.boldItalicFont:      xft:Fira Mono:size=12:bold:italic,xft:Hack:size=12:bold:italic
+
 URxvt.letterSpace:         -1
 
 URxvt.modifier:            alt
@@ -19,10 +25,21 @@ URxvt.scrollBar:           false
 URxvt*fading:              30
 
 ! Load perl plugins
-URxvt.perl-ext-common:     matcher,resize-font,clipboard
+URxvt.perl-ext-common:     clipboard,font-size,keyboard-select
 
-! Remap keys
+! keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+! FullScreen
 URxvt.keysym.F11:          perl:fullscreen:switch
+
+! font-size keybindings
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
 
 ! URxvt.resize-font.smaller: C-Down
 ! URxvt.resize-font.bigger:  C-Up
@@ -41,4 +58,4 @@ URxvt.keysym.C-V:   perl:clipboard:paste
 ! URxvt.clipboard.copycmd:  xsel -ib
 ! URxvt.clipboard.pastecmd: xsel -ob
 
-#include ".Xresources-colorscheme"
+#include ".Xresources-colorscheme-gruvbox"
