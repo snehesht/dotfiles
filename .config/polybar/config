@@ -44,7 +44,7 @@ font-4 = Unifont:size=5;-4
 font-5 = Termsynu:size=7;-3
 
 modules-left = i3
-;modules-center = mpd
+modules-center = time
 modules-right = weather externalip wifi wired powermenu
 
 ; tray-transparent = true
@@ -87,7 +87,7 @@ font-4 = Unifont:size=10;-2
 font-5 = FontAwesome:size=10;0
 font-6 = siji:size=10;-1
 
-modules-left = time date mpd
+modules-left = date mpd
 ; modules-center = mpd
 modules-right = updates volume backlight filesystem cpu memory battery0 battery1
 
@@ -271,7 +271,7 @@ label-connected = %{T3}%local_ip%%{T-}
 
 [module/date]
 type = internal/date
-date =  %Y-%m-%d
+date =  %a, %b %d %Y
 interval = 60
 
 [module/time]
@@ -420,18 +420,18 @@ adapter = AC
 
 label-charging = %percentage%
 label-discharging = %percentage%
-label-full = 
+label-full =  %percentage%
 
-format-charging = %{F#00ff00} <animation-charging> <label-charging>
-format-discharging = <label-discharging>
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
 format-full = <label-full>
 
-ramp-bat0-0 = %{F#00ff00}
-ramp-bat0-1 = 
-ramp-bat0-2 = 
-ramp-bat0-3 = 
-ramp-bat0-4 = 
-ramp-bat0-foreground = #666
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = #F00
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -447,20 +447,21 @@ full-at = 98
 battery = BAT1
 adapter = AC
 
+
 label-charging = %percentage%
 label-discharging = %percentage%
-label-full = 
+label-full =  %percentage%
 
-format-charging = %{F#00ff00} <animation-charging> <label-charging>
-format-discharging = <label-discharging>
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
 format-full = <label-full>
 
-ramp-bat0-0 = %{F#00ff00}
-ramp-bat0-1 = 
-ramp-bat0-2 = 
-ramp-bat0-3 = 
-ramp-bat0-4 = 
-ramp-bat0-foreground = #666
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = #F00
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -469,7 +470,6 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-foreground = #0F0
 animation-charging-framerate = 750
-
 
 [module/mpd2]
 type = internal/mpd

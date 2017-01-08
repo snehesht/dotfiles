@@ -1,3 +1,10 @@
+############## Tools ##################
+
+# Override rm & rm -rf
+# Enable Trash
+alias rm="~/dotfiles/.zsh/bin/trash.sh"
+alias cleantrash="/bin/rm -rf ~/.trash"
+
 ############## Git ####################
 
 # Add
