@@ -3,6 +3,7 @@
 # Override rm & rm -rf
 # Enable Trash
 alias rm="~/dotfiles/.zsh/bin/trash.sh"
+alias del="/bin/rm"
 alias cleantrash="/bin/rm -rf ~/.trash"
 
 ############## Git ####################

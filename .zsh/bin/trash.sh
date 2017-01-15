@@ -11,7 +11,7 @@ if [[ $1 == "--help" || $1 == "-h" || $# == 0 ]]; then
     echo "#-----------------------------------------#"
     echo "|              Trash script               |"
     echo "#-----------------------------------------#"
-    echo "moves the files that are to be removed to the trash directory i.e ~/.trash."
+    echo "$0 moves the files that are to be removed to the trash directory i.e ~/.trash."
     echo "you can manually clean the directory once a while to delete old trash"
     echo " "
     echo "Usage::"
