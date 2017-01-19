@@ -104,6 +104,18 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" Line folding
+set foldmethod=marker
+set foldlevel=0
+
+" Folding format
+" Section Name {{{
+" set number "This will be folded
+"
+" set colorscheme to gruvbox
+"
+" }}}
+
 " Add a bit extra margin to the left
 " set foldcolumn=1
 
@@ -350,3 +362,14 @@ function! <SID>BufcloseCloseIt()
         execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+" toggle between number and relativenumber
+command! ToggleLineNumbers call ToggleNumber()
+function! ToggleNumber()
+    if(&relativenumber == 1)
+        set norelativenumber
+        set number
+    else
+        set relativenumber
+    endif
+endfunc

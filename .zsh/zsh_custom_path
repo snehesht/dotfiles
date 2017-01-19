@@ -3,6 +3,8 @@ export PATH="/bin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/lib/jvm/def
 # NodeJS
 
 # Python
+# add .local/bin
+export PATH=$PATH:~/.local/bin
 
 # Golang
 export GOPATH=/home/warlock/CodeBase/Go

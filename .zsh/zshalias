@@ -43,6 +43,9 @@ alias vim="vim $@"
 # open links
 alias open="electron ~/min/ $@"
 
+# Weather
+alias weather="curl -s http://wttr.in"
+
 # Calc
 alias calc="bc $@"
 
