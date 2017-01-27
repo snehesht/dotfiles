@@ -31,7 +31,17 @@ alias gk="git checkout $@"
 # Diff
 alias gd="git diff $@"
 
+############## Node ###################
 
+# Sudo npm
+alias snpm="sudo npm $@"
+
+
+
+############## Python #################
+
+# Pip user location
+alias pipi="pip install $@ --user"
 
 ############## Custom #################
 

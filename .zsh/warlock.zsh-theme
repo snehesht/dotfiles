@@ -52,7 +52,7 @@ git_status() {
     STATUS=""
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
       STATUS_SHA="%{$fg_bold[white]%}⟪ $GIT_SHA ⟫%{$reset_color%}"
-      STATUS_BRANCH=" ⎇  $GIT_BRANCH %{$reset_color%}%{$fg_bold[white]%}"
+      STATUS_BRANCH=" $GIT_BRANCH %{$reset_color%}%{$fg_bold[white]%}"
     fi
     if [ "$GIT_CHANGED" -ne "0" ]; then
         STATUS="%{$bg[red]$fg_bold[white]%}"$STATUS_BRANCH"%{$reset_color%}"
@@ -64,5 +64,5 @@ git_status() {
 
 # Prompt
 PROMPT='%F{8}%n@%m%f %(?.%F{magenta}.%F{red})❯%f '
-RPROMPT='%F{4}%B%~%f%b ☩ $(git_status)'
+RPROMPT='%F{4}%B%~%f%b $(git_status)'
 

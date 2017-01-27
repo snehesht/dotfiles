@@ -7,17 +7,18 @@ Xft.hinting:    true
 Xft.rgba:       rgb
 Xft.hintstyle: hintfull
 
-URxvt.font:                xft:Fira Mono:size=12,xft:Hack:size=12,xft:unifont:size=14,xft:Font Awesome:size=14
-URxvt.boldFont:            xft:Fira Mono:size=12:bold,xft:Hack:size=12:bold
-URxvt.italicFont:          xft:Fira Mono:size=12:italic,xft:Hack:size=12:italic
-URxvt.boldItalicFont:      xft:Fira Mono:size=12:bold:italic,xft:Hack:size=12:bold:italic
+URxvt.font:                xft:UbuntuMono:size=11,xft:Fira Mono:size=11,xft:Hack:size=11,xft:DejaVu Sans Mono:size=11,xft:Arial:size=11,xft:DejaVu Sans:size=11,xft:FontAwesome:size=14
+!URxvt.boldFont:
+!URxvt.boldFont:            xft:Fira Mono:size=12:bold,xft:Hack:size=12:bold,xft:Arial:size=12:bold,xft:Unifont:size=14,xft:FontAwesome:size=14
+!URxvt.italicFont:          xft:Fira Mono:size=12:italic,xft:Hack:size=12:italic,xft:Arial:size=12:italic,xft:Unifont:size=14,xft:FontAwesome:size=14
+!URxvt.boldItalicFont:      xft:Fira Mono:size=12:bold:italic,xft:Hack:size=12:bold:italic,xft:Arial:size=12:bold:italic,xft:Unifont:size=14,xft:FontAwesome:size=14
 
-URxvt.letterSpace:         -1
+URxvt.letterSpace:         0
 
 URxvt.modifier:            alt
 
 ! Borders
-URxvt.internalBorder:      5
+URxvt.internalBorder:      8
 URxvt.externalBorder:      0
 
 ! Disable scrollbar
@@ -45,7 +46,7 @@ URxvt.keysym.C-slash:  font-size:show
 ! URxvt.resize-font.smaller: C-Down
 ! URxvt.resize-font.bigger:  C-Up
 
-URxvt.url-launcher:        /usr/bin/chromium
+URxvt.url-launcher:        /usr/bin/firefox
 URxvt.keysym.M-Delete:     perl:matcher:list
 URxvt.colorUL:             #7780a1
 
