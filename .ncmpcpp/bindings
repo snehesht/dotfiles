@@ -87,8 +87,8 @@ def_key "o"
 def_key "s"
   stop
 
-def_key "S"
- save_playlist
+#def_key "S"
+# save_playlist
 
 def_key "p"
   pause
@@ -255,6 +255,8 @@ def_key "!"
 def_key "L"
  toggle_lyrics_fetcher
 
+def_key "S"
+   save_tag_changes
 # def_key "y"
 #  save_tag_changes
 #

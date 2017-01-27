@@ -84,8 +84,9 @@ font-1 = Unifont:size=9;0
 font-2 = FontAwesome:size=11;0
 font-3 = NotoSans-Regular:size=8;-1
 font-4 = Unifont:size=10;-2
-font-5 = FontAwesome:size=10;0
+font-5 = FontAwesome:size=14;+1
 font-6 = siji:size=10;-1
+font-7 = Unifont:size=14;0
 
 modules-left = date mpd
 ; modules-center = mpd
@@ -94,7 +95,7 @@ modules-right = updates volume backlight filesystem cpu memory battery0 battery1
 tray-transparent = true
 tray-position = right
 tray-detached = false
-tray-maxsize = 24
+tray-maxsize = 16
 
 wm-restack = i3
 
@@ -271,8 +272,9 @@ label-connected = %{T3}%local_ip%%{T-}
 
 [module/date]
 type = internal/date
-date =  %a, %b %d %Y
+date =  ॐ %a, %b %d %Y
 interval = 60
+label-font = 7
 
 [module/time]
 type = internal/date
@@ -659,4 +661,5 @@ exec = curl -s http://ip-api.com/json | jq -M -r .query
 format =   <label>
 format-foreground = #FFFFFF
 interval = 300
-
+click-left = curl -s http://ip-api.com/json | jq -M -r .query | xsel -b
+click-right = echo 'Right Click'

@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # Set Wallpaper on startup
-exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper3.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/78a265wpio4-david-marcu.jpg
 
 # Start Wifi
 exec --no-startup-id nm-applet
@@ -36,7 +36,8 @@ font pango:Hack, monospace,FontAwesome 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+# bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -108,7 +109,7 @@ bindsym $mod+2 workspace  Firefox
 bindsym $mod+3 workspace  Vim
 bindsym $mod+4 workspace  Music
 bindsym $mod+5 workspace  Slack
-bindsym $mod+6 workspace 6
+bindsym $mod+6 workspace  Thunar
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
@@ -120,7 +121,7 @@ bindsym $mod+Shift+2 move container to workspace  Firefox
 bindsym $mod+Shift+3 move container to workspace  Vim
 bindsym $mod+Shift+4 move container to workspace  Music
 bindsym $mod+Shift+5 move container to workspace  Slack
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+6 move container to workspace  Thunar
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
@@ -200,10 +201,10 @@ bindsym $mod+u border none
 # Gaps
 
 # Gaps inside workspace
-gaps inner 5
+gaps inner 10
 
 # Gaps at the border of workspace
-# gaps outer 5
+gaps outer 0
 
 # Gaps only when there are multiple windows
 smart_gaps on
@@ -225,3 +226,6 @@ exec --no-startup-id compton --config /home/warlock/.config/i3/compton.conf
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Network Connections Logger
+# exec_always --no-startup-id $HOME/lsof_log.sh
