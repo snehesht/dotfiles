@@ -12,7 +12,7 @@ export TERM=xterm-256color
 #ZSH_THEME="custom"
 ZSH_THEME="warlock"
 
-
+plugins=(git colored-man-pages )
 ############ Plugins ###########################################################
 
 # Use Oh-my-zsh
@@ -30,7 +30,7 @@ antigen apply
 ############# Custom Alias #####################################################
 
 if [ -f ~/dotfiles/.zsh/zshalias ]; then
-	source ~/dotfiles/.zsh/zshalias
+        source ~/dotfiles/.zsh/zshalias
 else
         print "404: ~/dotfiles/.zsh/zshalias not found."
 fi
@@ -39,7 +39,7 @@ fi
 ############## Include all files in functions directory #######################
 
 for file in ~/dotfiles/.zsh/functions/*; do
-	source $file
+        source $file
 done
 
 ############## Include Custom Paths (zsh_custom_path) #######################
@@ -47,29 +47,6 @@ done
 source ~/dotfiles/.zsh/zsh_custom_path
 
 
-# ############## Plugins - ZPlug #################################################
-# # Syntax Highlighting
-# zplug "zsh-users/zsh-syntax-highlighting", nice:10
-
-# # 256 colors support
-# zplug 'chrissicool/zsh-256color'
-
-# # ZSH Pure theme
-# # zplug 'mafredri/zsh-async'
-# # zplug 'sindresorhus/pure'
-
-
-# # Install plugins if there are plugins that have not been installed
-# if ! zplug check --verbose; then
-#     printf "Install? [y/N]: "
-#     if read -q; then
-#         echo; zplug install
-#     fi
-# fi
-
-# # Then, source plugins and add commands to $PATH
-# zplug load --verbose
-
-
-
-
+# Load pyenv automatically by appending
+# # the following to ~/.zshrc:
+#eval "$(pyenv init -)"
