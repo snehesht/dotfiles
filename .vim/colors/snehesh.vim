@@ -1,28 +1,41 @@
-" Tomorrow - Full Colour and 256 Colour
+" Tomorrow Night Bright - Full Colour and 256 Colour
 " http://chriskempson.com
 "
 " Hex colour conversion functions borrowed from the theme "Desert256""
 
 " Default GUI Colours
-let s:foreground = "4d4d4c"
-let s:background = "ffffff"
-let s:selection = "d6d6d6"
-let s:line = "efefef"
-let s:comment = "8e908c"
-let s:red = "c82829"
-let s:orange = "f5871f"
-let s:yellow = "eab700"
-let s:green = "718c00"
-let s:aqua = "3e999f"
-let s:blue = "4271ae"
-let s:purple = "8959a8"
-let s:window = "efefef"
+" let s:foreground = "DDDDDD"
+" let s:background = "333333"
+" let s:selection = "424242"
+" let s:line = "2a2a2a"
+" let s:comment = "757575"
+" let s:red = "d54e53"
+" let s:orange = "e78c45"
+" let s:yellow = "e7c547"
+" let s:green = "b9ca4a"
+" let s:aqua = "70c0b1"
+" let s:blue = "7aa6da"
+" let s:purple = "c397d8"
+" let s:window = "4d5057"
 
-set background=light
+let s:foreground = "DDDDDD"
+let s:background = "333333"
+let s:selection = "424242"
+let s:line = "2A2A2A"
+let s:comment = "757575"
+let s:red = "FF7C7C"
+let s:orange = "FF9035"
+let s:yellow = "e7c547"
+let s:green = "47E35E"
+let s:aqua = "65E8D4"
+let s:blue = "5BC0EB"
+let s:purple = "c397d8"
+let s:window = "4d5057"
+
 hi clear
 syntax reset
 
-let g:colors_name = "Tomorrow"
+let g:colors_name = "snehesh"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	" Returns an approximate grey index for the given grey level
@@ -234,12 +247,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" Vim Highlighting
 	call <SID>X("Normal", s:foreground, s:background, "")
-	highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+	call <SID>X("LineNr", s:selection, "", "")
 	call <SID>X("NonText", s:selection, "", "")
 	call <SID>X("SpecialKey", s:selection, "", "")
-	call <SID>X("Search", s:foreground, s:yellow, "")
-	call <SID>X("TabLine", s:window, s:foreground, "reverse")
-	call <SID>X("TabLineFill", s:window, s:foreground, "reverse")
+	call <SID>X("Search", s:background, s:yellow, "")
+	call <SID>X("TabLine", s:foreground, s:window, "reverse")
+	call <SID>X("TabLineFill", s:foreground, s:window,  "reverse")
 	call <SID>X("StatusLine", s:window, s:yellow, "reverse")
 	call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
 	call <SID>X("VertSplit", s:window, s:window, "none")
@@ -332,15 +345,19 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("crystalException", s:purple, "", "")
 
 	" Python Highlighting
-	call <SID>X("pythonInclude", s:purple, "", "")
-	call <SID>X("pythonStatement", s:purple, "", "")
-	call <SID>X("pythonConditional", s:purple, "", "")
-	call <SID>X("pythonRepeat", s:purple, "", "")
-	call <SID>X("pythonException", s:purple, "", "")
-	call <SID>X("pythonFunction", s:blue, "", "")
-	call <SID>X("pythonPreCondit", s:purple, "", "")
-	call <SID>X("pythonRepeat", s:aqua, "", "")
+	call <SID>X("pythonInclude", s:blue, "", "")
+	call <SID>X("pythonStatement", s:blue, "", "")
+	call <SID>X("pythonConditional", s:blue, "", "")
+	call <SID>X("pythonRepeat", s:blue, "", "")
+	call <SID>X("pythonException", s:aqua, "", "")
+	call <SID>X("pythonFunction", s:red, "", "")
+	call <SID>X("pythonPreCondit", s:blue, "", "")
+	call <SID>X("pythonRepeat", s:blue, "", "")
 	call <SID>X("pythonExClass", s:orange, "", "")
+	call <SID>X("pythonBuiltinFunc", s:blue, "", "")
+	call <SID>X("pythonBoolean", s:red, "", "")
+	call <SID>X("pythonDot", s:orange, "", "")
+	call <SID>X("pythonDecorator ", s:purple, "", "")
 
 	" JavaScript Highlighting
 	call <SID>X("javaScriptBraces", s:foreground, "", "")
@@ -364,6 +381,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("htmlTagName", s:red, "", "")
 	call <SID>X("htmlArg", s:red, "", "")
 	call <SID>X("htmlScriptTag", s:red, "", "")
+
+	" Diff Highlighting
+	call <SID>X("diffAdd", "", "4c4e39", "")
+	call <SID>X("diffDelete", s:background, s:red, "")
+	call <SID>X("diffChange", "", "2B5B77", "")
+	call <SID>X("diffText", s:line, s:blue, "")
 
 	" ShowMarks Highlighting
 	call <SID>X("ShowMarksHLl", s:orange, s:background, "none")
@@ -480,3 +503,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	delf <SID>grey_level
 	delf <SID>grey_number
 endif
+
+set background=dark
+
+
+" Tabline Theme
+"
+hi TabLine      ctermfg=254  ctermbg=235     cterm=NONE
+hi TabLineFill  ctermfg=254  ctermbg=235     cterm=underline
+hi TabLineSel   ctermfg=228  ctermbg=235     cterm=bold

@@ -23,6 +23,6 @@ else
 
     # If there are folder conflicts they are automatically numbered
     # for example, hello, hello~, hello~1
-    /bin/mv --backup=simple --suffix="" $@ $CURR_TRASH_DIR
+    /bin/mv --backup=numbered --suffix="" $@ $CURR_TRASH_DIR
 fi
 

@@ -43,6 +43,10 @@ alias snpm="sudo npm $@"
 # Pip user location
 alias pipi="pip install $@ --user"
 
+
+############## Node ###################
+
+
 ############## Custom #################
 
 # Editor
@@ -60,5 +64,7 @@ alias weather="curl -s http://wttr.in"
 alias calc="bc $@"
 
 # youtube-dl alias
-
 alias ytdl_mp3="youtube-dl --extract-audio --audio-format mp3 $@"
+
+# Fortune & Cowsay & Lolcat
+alias f="fortune | cowsay | lolcat"
