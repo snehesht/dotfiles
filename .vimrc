@@ -97,7 +97,7 @@ set hlsearch
 set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw
+" set lazyredraw
 
 " For regular expressions turn magic on
 set magic
@@ -129,7 +129,10 @@ set foldlevel=0
 " Colorscheme
 " {{{ GruvBox & Tomorrow-Night
 colorscheme snehesh
-set background=dark
+" set background=dark
+
+" colorscheme one
+" set background=light
 set antialias
 " let g:gruvbox_contrast_dark="hard"    " Changes dark mode contrasts. Possible values are soft, medium, and hard. Default is medium
 " let g:gruvbox_contrast_light="hard"   " Changes light mode contrasts. Possible values are soft, medium, and hard. Default is medium
@@ -186,6 +189,16 @@ set history=1000
 
 " Allow buffer switching without saving
 set hidden
+
+
+" {{{ MacVim
+" MacVim settings
+" set guifont=SFMono\ Regular:h16
+set guifont=Monaco:h14
+"set linespace=2
+set guioptions=egm
+set guitablabel=%t\ %M
+" }}}
 
 
 
@@ -520,6 +533,7 @@ let g:mapleader = ','
 
 " Map <ESC> to jj
 inoremap jj <ESC>
+vnoremap jj <ESC>
 
 " Quick Save
 nmap <leader>w :w!<cr>

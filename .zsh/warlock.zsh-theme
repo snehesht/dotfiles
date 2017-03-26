@@ -34,7 +34,7 @@ preexec_functions+=(preexec_update_git_vars)
 function update_current_git_vars() {
     unset __CURRENT_GIT_STATUS
 
-    local gitstatus="/home/warlock/dotfiles/.zsh/gitstatus.py"
+    local gitstatus="$HOME/dotfiles/.zsh/gitstatus.py"
     _GIT_STATUS=$(python ${gitstatus} 2>/dev/null)
      __CURRENT_GIT_STATUS=("${(@s: :)_GIT_STATUS}")
     GIT_BRANCH=$__CURRENT_GIT_STATUS[1]
@@ -65,4 +65,3 @@ git_status() {
 # Prompt
 PROMPT='%F{202}[%m]%f %F{33}%n%f %(?.%F{magenta}.%F{red})❯%f '
 RPROMPT='%F{4}%B%~%f%b $(git_status)'
-
