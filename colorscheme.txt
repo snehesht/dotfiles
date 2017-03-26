@@ -1,8 +1,8 @@
 Red: FC615D
 Yellow: FDBC40
 Green: 34C749
-White: FFFFFF
-Black: 000000
-Blue:
+White: FAFAFA
+Black: 1D1D1D
+Blue: 419BF9
 Purple:
-Grey: 555555
+Grey: 706F70
