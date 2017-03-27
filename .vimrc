@@ -2,19 +2,18 @@
 
 "############### TODO ##############
 "
-" [ ]   [Mapping] Swap splits
-" [ ]   Python Support
-" [x]   Intendation Fix
-" [ ]   Enter character in End of Line after the last char not before
+
+
 
 " Disable vi-compatability
 set nocompatible
 
-" Enable mouse support automatically
-" set mouse=a
+" Enable mouse support automatically and disable mouse scrolling while typing
+if has('mouse')
+    set mouse=a
+    set mousehide
+endif
 
-" disable mouse scrolling while typing
-" set mousehide
 
 " Default Encoding
 scriptencoding utf-8
@@ -35,29 +34,38 @@ set relativenumber
 " set numberwidth=3 " auto
 
 " Indentation
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set textwidth=80
+" set spacing to use spaces, not tabs, 4 spaces per indent
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set smarttab
 set expandtab
 
-" Auto Indent
-set ai
 
-" Smart Indetn
+" 256 terminal colors to be supa pretty
+set t_Co=256
+
+" Smart Indentation
+set ai
 set si
 
 " Wrap lines
 set wrap
+set textwidth=80
 " set wrapmargin=80
 
+" These are really nice options for handling text wrapping in comments
+" see :help fo-table for what exactly they do
+set formatoptions=qrn2tcoj
+
+" smoother performance since we use modern terminals
+set ttyfast
+
 " Autocompletion menu
-set wildmenu
-
 " Command <Tab> completion, list matches, then longest common part, then all.
-set wildmode=list:longest,full
-
+set wildmenu
+set wildmode=list:longest
+" set wildmode=list:longest,full
 " Ignore these folders
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/__pycache__/*
 
@@ -82,6 +90,7 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l,[,]
 
 " Search
+" {{{
 set path+=**
 
 " Ignore case when searching
@@ -96,14 +105,19 @@ set hlsearch
 " Makes search act like search in modern browsers
 set incsearch
 
-" Don't redraw while executing macros (good performance config)
-" set lazyredraw
-
 " For regular expressions turn magic on
 set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch
+
+"}}}
+
+
+" Don't redraw while executing macros (good performance config)
+" set lazyredraw
+
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -165,10 +179,7 @@ set splitright
 set splitbelow
 
 
-"
-" Better Writing
-"
-
+" {{{ Better Writing
 " Automatically write a file when leaving a modified buffer
 set autowrite
 
@@ -186,18 +197,27 @@ set history=1000
 
 " Spell checking on
 " set spell
+" }}}
+
+" Save buffer whenever you lose focus
+augroup beziAutoSave
+    au!
+    au FocusLost * :wa
+augroup END
 
 " Allow buffer switching without saving
 set hidden
 
-
+" MacVim & gVim
 " {{{ MacVim
 " MacVim settings
-" set guifont=SFMono\ Regular:h16
-set guifont=Monaco:h14
-"set linespace=2
-set guioptions=egm
-set guitablabel=%t\ %M
+if has('gui_running')
+  set guifont=Monaco:h14
+  set guioptions=egm
+  set guitablabel=%t\ %M
+  set background=light
+  colorscheme one
+endif
 " }}}
 
 
@@ -241,10 +261,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 " }}}
 
+" Auto Indent setting based on file
 " {{{ Auto tabspace, shiftwidth based on file
 Plug 'tpope/vim-sleuth'
 " }}}
 
+" Brackets
 " {{{ Surround brackets, quotes etc.
 Plug 'tpope/vim-surround'
 " }}}
@@ -598,6 +620,32 @@ map <leader>hl :nohl<cr>
 map <leader>t :NERDTreeToggle<cr>
 map <leader>tt :NERDTreeTabsToggle<cr>
 
+" make the bracket move easier to hit (move from opening to closing braces, etc)
+" TODO: see if I actually use this
+noremap <tab> %
+vnoremap <tab> %
+
+" Disable Arrow key navigation
+" Todo: Write a function to toggle this.
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>
+
+
+" nnoremap <up> <nop>
+" nnoremap <down> <nop>
+" nnoremap <left> <nop>
+" nnoremap <right> <nop>
+" inoremap <up> <nop>
+" inoremap <down> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
+" inoremap <ESC> <nop>
 
 " ###############################################
 "                                               #
@@ -667,4 +715,3 @@ function! ToggleNumber()
         set relativenumber
     endif
 endfunc
-
