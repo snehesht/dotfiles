@@ -212,7 +212,7 @@ set hidden
 " {{{ MacVim
 " MacVim settings
 if has('gui_running')
-  set guifont=Monaco:h14
+  set guifont=SF\ Mono\ Medium\ Extra-Condensed\ 9
   set guioptions=egm
   set guitablabel=%t\ %M
   set background=light
@@ -227,6 +227,14 @@ endif
 "######################################
 
 call plug#begin('~/.vim/plugged')
+
+" Cursor
+" {{{ Cursorword and Multiple Cursors
+Plug 'itchyny/vim-cursorword'
+
+Plug 'terryma/vim-multiple-cursors'
+
+" }}}
 
 " {{{ NerdTree
 Plug 'scrooloose/nerdtree'
@@ -254,6 +262,26 @@ Plug 'jlanzarotta/bufexplorer'
 " Git
 " {{{ vim-fugitive
 Plug 'tpope/vim-fugitive'
+" }}}
+
+" Startup Screen
+" {{{ Startify
+Plug 'mhinz/vim-startify'
+
+function! s:filter_header(lines) abort
+    let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
+    let centered_lines = map(copy(a:lines),
+        \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+    return centered_lines
+endfunction
+" let g:startify_custom_header = s:filter_header(startify#fortune#cowsay())
+
+" }}}
+
+" Better Writing
+" {{{ Goyo
+Plug 'junegunn/goyo.vim'
+
 " }}}
 
 " Comments
@@ -459,6 +487,12 @@ let g:taboo_renamed_tab_format = " %N: %l %m "
 let g:taboo_tab_format = " %N: %f %m "
 
 "}}}
+
+" Code Linting
+" {{{ Asyc Linter
+Plug 'w0rp/ale'
+
+" }}}
 
 " Python Support plugin
 " {{{ jedi-vim
