@@ -287,6 +287,7 @@ Plug 'junegunn/goyo.vim'
 " Comments
 " {{{ Comment lines with vim-commentary
 Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdcommenter'
 " }}}
 
 " Auto Indent setting based on file
@@ -521,16 +522,36 @@ Plug 'pangloss/vim-javascript'
 " }}}
 
 " Autocompletion
-" {{{ NeoComplete
-Plug 'Shougo/neocomplete.vim'
+" {{{
+" NeoComplete
+" Plug 'Shougo/neocomplete.vim'
+
+
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
+" let g:acp_enableAtStartup = 0
 " Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
-let g:neocomplete#enable_smart_case = 1
+" let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Deoplete
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+" Tmux Autocomplete
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'wellle/tmux-complete.vim'
+let g:tmuxcomplete#trigger = ''
+
+" }}}
+" Fuzzy File Finder
+" {{{
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 " }}}
 
 " HTML & SASS/CSS
