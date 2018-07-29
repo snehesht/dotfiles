@@ -47,21 +47,37 @@ function update_current_git_vars() {
     GIT_UNTRACKED=$__CURRENT_GIT_STATUS[8]
 }
 
-git_status() {
+# git_status() {
+#     precmd_update_git_vars
+#     STATUS=""
+#     if [ -n "$__CURRENT_GIT_STATUS" ]; then
+#       STATUS_SHA="%{$bg[white]$fg_bold[black]%} $GIT_SHA %{$reset_color%}"
+#       STATUS_BRANCH=" $GIT_BRANCH %{$reset_color%}%{$fg_bold[white]%}"
+#     fi
+#     if [ "$GIT_CHANGED" -ne "0" ]; then
+#         STATUS="%{$bg[red]$fg_bold[white]%}"$STATUS_BRANCH"%{$reset_color%}"
+#     else
+#         STATUS="%{$bg[green]$fg_bold[black]%}"$STATUS_BRANCH"%{$reset_color%}"
+#     fi
+#     echo "$STATUS_SHA $STATUS"
+# }
+
+git_branch() {
     precmd_update_git_vars
-    STATUS=""
+    STATUS_SHA="%{$fg_bold[cyan]%}${GIT_SHA}%{$reset_color%}"
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
-      STATUS_SHA="%{$fg_bold[white]%}⟪ $GIT_SHA ⟫%{$reset_color%}"
-      STATUS_BRANCH=" $GIT_BRANCH %{$reset_color%}%{$fg_bold[white]%}"
+      STATUS_BRANCH="$GIT_BRANCH%{$reset_color%}%{$fg_bold[white]%}"
     fi
     if [ "$GIT_CHANGED" -ne "0" ]; then
-        STATUS="%{$bg[red]$fg_bold[white]%}"$STATUS_BRANCH"%{$reset_color%}"
+        STATUS="%{$fg_bold[red]%}"$STATUS_BRANCH"%{$reset_color%}"
     else
-        STATUS="%{$bg[green]$fg_bold[white]%}"$STATUS_BRANCH"%{$reset_color%}"
+        STATUS="%{$fg_bold[green]%}"$STATUS_BRANCH"%{$reset_color%}"
     fi
-    echo "$STATUS_SHA $STATUS"
+    echo "$STATUS:$STATUS_SHA"
 }
 
 # Prompt
-PROMPT='%F{202}[%m]%f %F{33}%n%f %(?.%F{magenta}.%F{red})❯%f '
-RPROMPT='%F{4}%B%~%f%b $(git_status)'
+# PROMPT='%F{202}[%m]%f %F{33}%n%f %(?.%F{magenta}.%F{red})$(git_branch):$(git_sha) ❯%f '
+# RPROMPT='%F{4}%B%~%f%b '
+PROMPT='%{$fg_bold[yellow]%}%n@%m%f %(?.%F{magenta}.%F{red})$(git_branch) $>%f '
+RPROMPT='%F{4}%B%~%f%b'
