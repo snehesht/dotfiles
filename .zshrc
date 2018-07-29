@@ -2,7 +2,7 @@ source ~/.zsh/antigen.zsh
 
 
 # Theme
-ZSH_THEME="bullet-train"
+ZSH_THEME="warlock"
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -82,10 +82,10 @@ alias hide_hidden_files="defaults write com.apple.Finder AppleShowAllFiles false
 
 export HOMEBREW_GITHUB_API_TOKEN=27b7d41596a43053de92eab8cb55d8218c8aed15
 
-export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export ANDROID_HOME=/Users/dev/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/platform-tools:/Users/dev/Library/Android/sdk/build-tools/27.0.3
+#export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
 export PATH="$HOME/.fastlane/bin:$PATH"
-
+export PATH="$HOME/.bin:$PATH"
 # hledger
 alias h="hledger $@"

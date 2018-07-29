@@ -1,5 +1,9 @@
 ! Cursor theme
 Xcursor.theme:      DMZ-White
+Xcursor.size: 24
+
+! UI element scaling, icons
+! export GDK_SCALE=2
 
 ! Fonts
 Xft.antialias:      true
@@ -7,7 +11,7 @@ Xft.hinting:        true
 Xft.rgba:       rgb
 Xft.hintstyle:      hintfull
 
-URxvt.font: xft:monaco:size=10
+URxvt.font: xft:monaco:size=12,zft:noto-emoji:size=12
 !URxvt.font:     xft:UbuntuMono:size=11,xft:Fira Mono:size=11,xft:Hack:size=11,xft:FontAwesome:size=14
 URxvt.letterSpace:      0
 URxvt*lineSpace:        2
@@ -35,7 +39,9 @@ URxvt*fading:       1
 URxvt.cursorBlink: true
 
 ! Load perl plugins
-URxvt.perl-ext-common:     clipboard,font-size,keyboard-select,matcher
+URxvt.perl-ext-common:     clipboard,font-size,keyboard-select,url-select,matcher
+URxvt.url-select.launcher: firefix
+URxvt.url-select.underline: true
 
 ! keyboard-select
 ! https://github.com/muennich/urxvt-perls
@@ -69,5 +75,5 @@ URxvt.keysym.C-C:   perl:clipboard:copy
 URxvt.keysym.C-V:   perl:clipboard:paste
 
 ! ColorScheme
-#include ".Xresources-colorscheme-tomorrow"
+#include ".Xresources-colorscheme"
 !#include ".Xresources-colorscheme-gruvbox"
