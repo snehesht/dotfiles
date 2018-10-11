@@ -4,6 +4,7 @@ source ~/.zsh/antigen.zsh
 # Theme
 ZSH_THEME="warlock"
 
+
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
@@ -13,12 +14,12 @@ antigen bundle npm
 antigen bundle encode64
 antigen bundle colorize
 antigen bundle github
-antigen bundle brew
-antigen bundle osx
-antigen bundle rails
-antigen bundle ruby
-antigen bundle capistrano
-antigen bundle bundler
+# antigen bundle brew
+# antigen bundle osx
+# antigen bundle rails
+# antigen bundle ruby
+# antigen bundle capistrano
+# antigen bundle bundler
 
 # FZF
 antigen bundle changyuheng/fz
@@ -35,7 +36,8 @@ antigen bundle zsh-users/zsh-completions
 
 # Load the theme.
 # antigen theme agnoster
-antigen theme warlock
+
+antigen theme /home/warlock/.zsh warlock
 # antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 
 # Tell Antigen that you're done.
@@ -61,26 +63,18 @@ done
 
 ############## Include Custom Paths (zsh_custom_path) #######################
 source ~/.zsh/zsh_custom_path
-export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/go/bin
+export WORKSPACE=$HOME/Workspace
+export GOPATH=$WORKSPACE/go
+export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/Library/Python/3.6/bin
+
 # Load pyenv automatically by appending
 # # the following to ~/.zshrc:
 #eval "$(pyenv init -)"
 
-# Custom Alias
-export GD=$HOME/Goodfoot
-# Sublime Text 3 Dev
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl $@"
-
-
-alias show_hidden_files="defaults write com.apple.Finder AppleShowAllFiles true && killall Finder"
-alias hide_hidden_files="defaults write com.apple.Finder AppleShowAllFiles false && killall Finder"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export HOMEBREW_GITHUB_API_TOKEN=27b7d41596a43053de92eab8cb55d8218c8aed15
 
 #export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -89,3 +83,17 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 # hledger
 alias h="hledger $@"
+
+export REACT_EDITOR='code'
+# export REACT_DEBUGGER="rndebugger --open --port 8081"
+#export REACT_DEBUGGER="/opt/reactotron/Reactotron"
+
+# Snap
+export PATH=$PATH:/snap/bin
+
+# SBIN
+export PATH=$PATH:/usr/sbin:/usr/local/sbin
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /usr/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /usr/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh

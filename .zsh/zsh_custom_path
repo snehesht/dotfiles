@@ -9,8 +9,8 @@ export PATH=$PATH:~/.node_modules_global/bin
 export PATH=$PATH:~/.local/bin
 
 # Golang
-export GOPATH=/home/warlock/CodeBase/Go
+export GOPATH=$HOME/CodeBase/Go
 export PATH=$PATH:$GOPATH/bin
 
-# Ruby
-export PATH=$PATH:~/.gem/ruby/2.4.0/bin
+
+
