@@ -491,7 +491,15 @@ let g:taboo_tab_format = " %N: %f %m "
 
 " Code Linting
 " {{{ Asyc Linter
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
+
+" }}}
+
+" Colorschemes
+" {{{
+Plug 'dracula/vim'
+Plug 'jacoborus/tender.vim'
+Plug 'nikitavoloboev/vim-monokai-night'
 
 " }}}
 
@@ -520,6 +528,17 @@ Plug 'pangloss/vim-javascript'
 " JavaScript parameter completion
 " Plug 'othree/jspc.vim'
 " }}}
+
+" Markdown
+" {{{
+
+Plug 'JamshedVesuna/vim-markdown-preview'
+let vim_markdown_preview_github=1
+let vim_markdown_preview_hotkey='<leader>p'
+let vim_markdown_preview_browser='Google Chrome'
+
+" }}}
+
 
 " Autocompletion
 " {{{
@@ -573,6 +592,15 @@ let g:closetag_filenames = "*.html,*.jsx"
 Plug 'cakebaker/scss-syntax.vim'
 " }}}
 
+" Ledger
+" {{{
+Plug 'ledger/vim-ledger'
+" }}}
+" Database
+" {{{
+Plug 'tpope/vim-db'
+"
+" }}}
 " Unused Plugins
 " {{{
 
@@ -719,6 +747,9 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
+autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
