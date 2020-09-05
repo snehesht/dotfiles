@@ -1,0 +1,20 @@
+request() {
+    curl -G 'https://text-to-speech-demo.ng.bluemix.net/api/synthesize' \
+    --data-urlencode "text=$TEXT" \
+    --data-urlencode "voice=en-US_MichaelVoice" \
+    --data-urlencode "accept=audio/mp3" \
+    -H 'Pragma: no-cache' \
+    -H 'Accept-Encoding: identity;q=1, *;q=0' \
+    -H 'Accept-Language: en-US,en;q=0.9' \
+    -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36' \
+    -H 'chrome-proxy: frfr' \
+    -H 'Accept: */*' \
+    -H 'Cache-Control: no-cache' \
+    -H 'Connection: keep-alive' \
+    -H 'Range: bytes=0-' \
+    -s \
+    --compressed | mpv /dev/stdin > /dev/null 2>&1
+}
+
+TEXT=$@
+request $TEXT
