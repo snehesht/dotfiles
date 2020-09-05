@@ -1,0 +1,101 @@
+set-option -g prefix C-a
+bind-key C-a last-window
+bind-key v run-shell "tmux split-window -h; tmux select-layout even-horizontal"
+bind-key w select-pane -t :.+     # was choose-window
+bind-key W select-pane -t :.-     # was choose-window
+
+# Start numbering at 1
+set -g base-index 1
+
+# Massive scrollback
+set -g history-limit 10000
+
+# Allows for faster key repetition
+set -s escape-time 0
+
+# Rather than constraining window size to the maximum size of any client
+# connected to the *session*, constrain window size to the maximum size of any
+# client connected to *that window*. Much more reasonable.
+setw -g aggressive-resize on
+
+# Allows us to use C-a a <command> to send commands to a TMUX session inside
+# another TMUX session
+bind-key a send-prefix
+
+# Center align status bar
+set-option -g status-justify centre
+
+# Clean status bar
+set -g status-left ""
+set -g status-right ""
+
+# Set status bar colors
+set -g status-bg default
+set-option -g status-fg white
+set-window-option -g window-status-bg colour240
+set-window-option -g window-status-fg white
+set-window-option -g window-status-current-bg colour41
+set-window-option -g window-status-current-fg black
+set-window-option -g window-status-separator '  '
+
+# Set window/pane colors and add "padding" around panes and windows
+setw -g window-style 'bg=#262626'
+setw -g window-active-style 'bg=#121212'
+set-option -g pane-active-border-style 'bg=#3a3a3a'
+set-option -ag pane-active-border-style 'bg=#3a3a3a'
+set-option -g pane-active-border-fg colour237
+set-option -g pane-border-fg colour237
+setw -g pane-border-status bottom
+
+# Make new windows/panes open to the current path instead of the path tmux was
+# started from
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
+
+# Shift+arrows to switch windows
+bind -n S-Left  previous-window
+bind -n S-Right next-window
+
+# Ctrl+Shift+arrows to reorder windows
+bind-key -n C-S-Left swap-window -t -1
+bind-key -n C-S-Right swap-window -t +1
+
+# Alt+arrows to change pane
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+# Alt+Shift+arrows to resize panes
+bind-key -n M-S-Up resize-pane -U 3
+bind-key -n M-S-Down resize-pane -D 3
+bind-key -n M-S-Left resize-pane -L 5
+bind-key -n M-S-Right resize-pane -R 5
+
+# Use default shell
+set-option -g default-shell $SHELL
+
+# vi key bindings
+setw -g mode-keys vi
+bind-key -Tcopy-mode-vi 'v' send -X begin-selection
+bind-key -Tcopy-mode-vi 'y' send -X copy-selection
+bind-key -Tcopy-mode-vi Escape send -X cancel
+bind-key -Tcopy-mode-vi V send -X rectangle-toggle
+
+# tmux-resurrect settings
+set -g @resurrect-strategy-vim 'session'
+set -g @resurrect-strategy-nvim 'session'
+set -g @resurrect-capture-pane-contents 'on'
+set -g @resurrect-save-shell-history 'on'
+
+# Conditionally include mac/linux conf
+if-shell "uname | grep -q Darwin" "source-file ~/.tmux-mac.conf" "source-file ~/.tmux-linux.conf"
+
+# tmux plugins (keep this at the very bottom)
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
