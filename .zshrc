@@ -2,7 +2,7 @@ source ~/.zsh/antigen.zsh
 
 
 # Theme
-ZSH_THEME="warlock"
+# ZSH_THEME="dracula"
 
 
 # Load the oh-my-zsh's library.
@@ -37,11 +37,18 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Completion
 antigen bundle zsh-users/zsh-completions
 
+# ZSH Async
+antigen bundle mafredri/zsh-async
+
 # Load the theme.
 # antigen theme agnoster
 
-antigen theme /home/warlock/.zsh warlock
+# antigen theme /home/warlock/.zsh warlock
 # antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+# antigen theme https://github.com/dracula/zsh dracula
+antigen theme /home/warlock/.zsh dracula
+DRACULA_DISPLAY_TIME=1
+DRACULA_ARROW_ICON="$\$ "
 
 # Tell Antigen that you're done.
 antigen apply
@@ -101,6 +108,9 @@ export PATH=$PATH:/usr/sbin:/usr/local/sbin
 # Aria2c
 alias get="aria2c -x 16 -s 16 -j 16 $@"
 
+# XDG-Open
+alias open="xdg-open $@"
+
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /usr/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /usr/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
@@ -108,9 +118,12 @@ alias get="aria2c -x 16 -s 16 -j 16 $@"
 
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
+# export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
 
-source $HOME/.poetry/env
+
+# Kubernetes
+export KUBECONFIG=~/.kube/config 
+# source $HOME/.poetry/env
 
 
 # PostgreSQL
@@ -124,3 +137,48 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Kitty
+autoload -Uz compinit
+compinit
+~/.local/bin/kitty + complete setup zsh | source /dev/stdin
+
+
+# SSH Alias
+alias sshp="ssh -o PreferredAuthentications=password $@"
+
+# PSQL Alias
+alias pglocal="docker exec -it -u postgres postgres psql $@"
+
+
+# NVM 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(/home/warlock/.pyenv/bin/pyenv init -)"
+export PATH="$PATH:home/warlock/.pyenv/versions/3.8.9/bin"
+
+# OPS config
+export OPS_DIR="$HOME/.ops"
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+export PATH="$WASMTIME_HOME/bin:$PATH"
+
+# Wasmer
+export WASMER_DIR="/home/warlock/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+
+# Helix
+HELIX_RUNTIME=/opt/helix/runtime
+export PATH=$PATH:/opt/helix
+
+# Rust 
+source $HOME/.cargo/env
+export PATH=$PATH:$HOME/.cargo/bin
+
+# Arkade github.com/alexellis/arkade 
+export PATH=$PATH:$HOME/.arkade/bin
