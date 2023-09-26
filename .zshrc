@@ -1,160 +1,132 @@
-source ~/.zsh/antigen.zsh
-
-
-# Theme
-# ZSH_THEME="dracula"
-
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle npm
-antigen bundle encode64
-antigen bundle colorize
-antigen bundle github
-# antigen bundle brew
-# antigen bundle osx
-# antigen bundle rails
-# antigen bundle ruby
-# antigen bundle capistrano
-# antigen bundle bundler
-
-# DirNav
-# antigen bundle gparker42/zsh-dirnav
-
-# FZF
-antigen bundle changyuheng/fz
-antigen bundle rupa/z
-
-# Auto Suggestions
-antigen bundle zsh-users/zsh-autosuggestions
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Completion
-antigen bundle zsh-users/zsh-completions
-
-# ZSH Async
-antigen bundle mafredri/zsh-async
-
-# Load the theme.
-# antigen theme agnoster
-
-# antigen theme /home/warlock/.zsh warlock
-# antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
-# antigen theme https://github.com/dracula/zsh dracula
-antigen theme /home/warlock/.zsh dracula
-DRACULA_DISPLAY_TIME=1
-DRACULA_ARROW_ICON="$\$ "
-
-# Tell Antigen that you're done.
-antigen apply
-
-############# Custom Alias #####################################################
-
-if [ -f ~/.zsh/zshalias ]; then
-        source ~/.zsh/zshalias
-else
-        print "404: ~/.zsh/zshalias not found."
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
 
-############## Custom Functions ###############################################
-############## Include all files in functions directory #######################
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
 
-for file in ~/.zsh/functions/*; do
-        source $file
-done
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-############## Include Custom Paths (zsh_custom_path) #######################
-source ~/.zsh/zsh_custom_path
-export PATH=$PATH:/usr/local/go/bin
-export WORKSPACE=$HOME/Workspace
-export GOPATH=$WORKSPACE/go
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/bin
-
-# Load pyenv automatically by appending
-# # the following to ~/.zshrc:
-#eval "$(pyenv init -)"
+#=== THEME ============================================
+# Powerlevel10K theme
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+zinit ice depth"1" # git clone depth
+zinit light romkatv/powerlevel10k
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-submods \
+    zdharma-continuum/zinit-annex-binary-symlink
 
 
-#export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
-export PATH="$HOME/.fastlane/bin:$PATH"
-export PATH="$HOME/.bin:$PATH"
-# hledger
-alias h="hledger $@"
+#=== GITHUB BINARIES ==================================
+zi from'gh-r' lbin'!' nocompile for \
+  @dandavison/delta    @junegunn/fzf       \
+  @koalaman/shellcheck @pemistahl/grex     \
+  @melbahja/got        @r-darwish/topgrade \
+  @sharkdp/fd          @sharkdp/hyperfine  \
+  lbin'!* -> jq'       @stedolan/jq        \
+  lbin'!* -> shfmt'    @mvdan/sh           \
+  lbin'!**/nvim'       @neovim/neovim      \
+  lbin'!**/rg'         @BurntSushi/ripgrep
 
-export REACT_EDITOR='code'
-export REACT_DEBUGGER="rndebugger-open --open --port 8081"
-#export REACT_DEBUGGER="/opt/reactotron/Reactotron"
+# z
+zinit ice wait blockf lucid
+zinit light rupa/z
 
-# Snap
+# z tab completion
+zinit ice wait lucid
+zinit light changyuheng/fz
+
+# z / fzf (ctrl-g)
+zinit ice wait lucid
+zinit light andrewferrier/fzf-z
+
+zinit ice wait lucid 
+zinit light unixorn/fzf-zsh-plugin
+
+# cd
+zinit ice wait lucid
+zinit light changyuheng/zsh-interactive-cd
+
+bindkey -r '^[[A'
+bindkey -r '^[[B'
+function __bind_history_keys() {
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+}
+
+# History substring searching
+zinit ice wait lucid atload'__bind_history_keys'
+zinit light zsh-users/zsh-history-substring-search
+
+# autosuggestions, trigger precmd hook upon load
+zinit ice wait lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=10
+
+# Tab completions
+zinit ice wait lucid blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
+
+# Syntax highlighting
+#zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
+#zinit light zdharma/fast-syntax-highlighting
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
+
+zinit light supercrabtree/k
+zinit light peterhurford/git-it-on.zsh
+zinit light chrissicool/zsh-256color
+zinit light djui/alias-tips
+
+zinit ice wait lucid
+zinit light unixorn/git-extra-commands
+
+
+
+### End of Zinit's installer chunk
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Binaries
+export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:/snap/bin
 
-# SBIN
-export PATH=$PATH:/usr/sbin:/usr/local/sbin
-
-# Aria2c
-alias get="aria2c -x 16 -s 16 -j 16 $@"
-
-# XDG-Open
-alias open="xdg-open $@"
-
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /usr/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /usr/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
-
-
+# Nvidia CUDA
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-# export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
 
+# Alias
+alias get="aria2c -x 16 -s 16 -j 16 $@"
+alias open="xdg-open $@"
 
-# Kubernetes
-export KUBECONFIG=~/.kube/config 
-# source $HOME/.poetry/env
-
-
-# PostgreSQL
-alias pg="PGPASSWORD=password psql -h 172.16.1.13 -U postgres"
-alias youtube-dl-playlist="youtube-dl -o '%(playlist_index)s. %(title)s.%(ext)s' $@"
-alias torrent="aria2c --seed-time=0 --file-allocation=none $@"
-
-# Android Studio
-export ANDROID_HOME=$HOME/.androidstudio/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-# Kitty
-autoload -Uz compinit
-compinit
-~/.local/bin/kitty + complete setup zsh | source /dev/stdin
-
-
-# SSH Alias
-alias sshp="ssh -o PreferredAuthentications=password $@"
-
-# PSQL Alias
-alias pglocal="docker exec -it -u postgres postgres psql $@"
-
-
-# NVM 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Go
+export GOPATH="$HOME/go"
+export PATH="$HOME/go/bin:$PATH"
 
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -162,23 +134,61 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(/home/warlock/.pyenv/bin/pyenv init -)"
 export PATH="$PATH:home/warlock/.pyenv/versions/3.8.9/bin"
 
-# OPS config
-export OPS_DIR="$HOME/.ops"
-
-export WASMTIME_HOME="$HOME/.wasmtime"
-export PATH="$WASMTIME_HOME/bin:$PATH"
-
-# Wasmer
-export WASMER_DIR="/home/warlock/.wasmer"
-[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
-
-# Helix
-HELIX_RUNTIME=/opt/helix/runtime
-export PATH=$PATH:/opt/helix
-
-# Rust 
+# Rust
 source $HOME/.cargo/env
 export PATH=$PATH:$HOME/.cargo/bin
 
-# Arkade github.com/alexellis/arkade 
-export PATH=$PATH:$HOME/.arkade/bin
+# Poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+
+# Volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/warlock/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+# bun completions
+[ -s "/home/warlock/.bun/_bun" ] && source "/home/warlock/.bun/_bun"
+
+# Temp directory
+tmp() {
+  cd `mktemp -d`
+}
+
+uuid() {
+  uuidgen | xsel -b
+}
+
+# fnm
+export PATH="/home/warlock/.local/share/fnm:$PATH"
+eval "`fnm env`"
+eval "$(fnm env --use-on-cd)"
+
+
+# SSH 
+alias sshp="ssh -o PreferredAuthentications=password $@"
+
+# Cleanup 
+pyclean () {
+    find . -regex '^.*\(__pycache__\|\.py[co]\)$' -delete
+}
+
+npmclean() {
+    find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
+}
+
+#export NVM_DIR="$HOME/.reflex/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# github.com/jdxcode/rtx
+eval "$(rtx activate zsh)"
+
+# bun completions
+[ -s "/home/warlock/.reflex/.bun/_bun" ] && source "/home/warlock/.reflex/.bun/_bun"
+
+# Wasmtime 
+export WASMTIME_HOME="$HOME/.local/share/rtx/installs/wasmtime/latest"
+export PATH="$WASMTIME_HOME/bin:$PATH"
